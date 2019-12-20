@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<span class="timespan"></span>
+</head>
+<body>
+	<script type="text/javascript">
+		var starttime=new Date("2019-12-05 18:39:22");
+		setInterval(function(){
+			var nowtime=new Date();
+			console.log(starttime);
+			console.log(nowtime);
+			var time = starttime-nowtime;
+			console.log(time);
+			var day = parseInt(time/1000/3600/24);
+			// var hour = parseInt(time%day/1000/3600);
+			var hour1 = parseInt(time/1000/3600%24);
+			// var min = parseInt(time/1000%3600);
+			var minute = parseInt(time/1000/60%60);
+			var second = parseInt(time/1000%60);
+			console.log(day);
+			console.log(hour1);
+			console.log(day + "天" + hour1 + "小时" + minute + "分钟" + second + "秒")
+		},1000)
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery实现轮播</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		.first{position:relative;width:600px;height: 400px;display:flex; flex-direction: column;justify-content: space-around;}
+		div>div.dont{width:200px;height:200px;position:absolute;display: flex;justify-content: space-around;}
+		div div img{
+			width:200px;height:200px;
+		}
+		button{width:50px;height:50px;position:absolute;border:none;right:25px;bottom:30px;cursor:pointer;}
+		button:nth-of-type(1):focus{outline:3px solid #f0f;}
+		button:focus{outline:3px solid #f0f;}
+		button:nth-of-type(1){background-image:url("img/a.jpg");background-size:100% 100%;}
+		button:nth-of-type(2){background-image:url("img/b.jpg");background-size:100% 100%;}
+		button:nth-of-type(3){background-image:url("img/c.jpg");background-size:100% 100%;}
+		button:nth-of-type(4){background-image:url("img/d.jpg");background-size:100% 100%;}
+		button:nth-of-type(5){background-image:url("img/e.jpg");background-size:100% 100%;}
+		div.tao{
+			position: absolute;
+			bottom:50px;
+			right: 50px;
+			display: block!important;
+			}
+		div.l_r{
+			display: flex;
+			justify-content: center;
+		
+		}
+		div.l_r div{
+			width: 30px;
+			height: 30px;
+			border:1px solid #fff;
+			background-color: #000;
+			display: block!important;
+		}
+		
+	</style>
+</head>
+	<body>
+		<div class="first">
+		    <div class="dont">
+		    	<img src="img/a.jpg">
+		    	<p>11111</p>
+		    </div>
+		    <div class="dont">
+		    	<img src="img/b.jpg">
+		    	<p>2222</p>
+		    </div>
+		    <div class="dont">
+		    	<img src="img/c.jpg">
+		    	<p>33</p>
+		    </div>
+		    <div class="dont">
+		    	<img src="img/d.jpg">
+		    	<p>44</p>
+		    </div>
+		    <div class="dont">
+		    	<img src="img/e.jpg">
+		    	<p>55</p>
+		    </div>
+		    <div class="tao">
+		    	<div class="l_r">
+			    	<div class="left"><i class="iconfont icon-arrow-lift"></i></div>
+			    	<div class="right"><i class="iconfont icon-arrow-right"></i></div>
+			    </div>
+		    </div>
+		    <button></button>
+		    <button></button>
+		    <button></button>
+		    <button></button>
+		    <button></button>
+		</div>
+
+	</body>
+<script type="text/javascript">
+	$("div div:not(:first)").fadeOut(5);
+	$("button").click(function(e){
+	   var arr=Array.from($("button"));
+	   var index=arr.indexOf(this);
+	   $("div div.dont:visible(:last)").fadeOut(500);
+	   $("div div").eq(index).fadeIn(500);
+	}).css("right",function(index){
+	   return ($(this).width()+15)*(index+1)+"px";
+	})
+
+</script>
+</html>

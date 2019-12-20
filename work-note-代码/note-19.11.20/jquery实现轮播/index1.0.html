@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../css/album.css">
+    <title>常用相册图片左右点击切换轮播js特效</title>
+    <meta name="keywords" content="相册,图片,左右,点击切换,轮播,js特效">
+    <meta name="description" content="常用相册图片左右点击切换轮播，可应用在商品详情、汽车展示、相册展示等，jQuery左右按钮切换图片，点击小图缩略图可切换到对应的大图，当缩略图过多时可点击左右按钮控制底部缩略图片左右滚动，进行更多的图片切换。">
+    <script type="text/javascript">
+        function stops() {
+            return false;
+        }
+        document.oncontextmenu = stops;
+    </script>
+</head>
+
+<body>
+
+    <script type="text/javascript" src="http://www.jsdaima.com/Upload/1476063436/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //点击小图切换大图
+            $("#thumbnail li a").click(function() {
+                $(".zoompic img").hide().attr({
+                    "src": $(this).attr("href"),
+                    "title": $("> img", this).attr("title")
+                });
+                $("#thumbnail li.current").removeClass("current");
+                $(this).parents("li").addClass("current");
+                return false;
+            });
+            $(".zoompic>img").load(function() {
+                $(".zoompic>img:hidden").show();
+            });
+
+            //小图片左右滚动
+            var $slider = $('.slider ul');
+            var $slider_child_l = $('.slider ul li').length;
+            var $slider_width = $('.slider ul li').width();
+            $slider.width($slider_child_l * $slider_width);
+
+            var slider_count = 0;
+
+            if ($slider_child_l < 5) {
+                $('#btn-right').css({
+                    cursor: 'auto'
+                });
+                $('#btn-right').removeClass("dasabled");
+            }
+
+            $('#btn-right').click(function() {
+                if ($slider_child_l < 5 || slider_count >= $slider_child_l - 5) {
+                    return false;
+                }
+
+                slider_count++;
+                $slider.animate({
+                    left: '-=' + $slider_width + 'px'
+                }, 'fast');
+                slider_pic();
+            });
+
+            $('#btn-left').click(function() {
+                if (slider_count <= 0) {
+                    return false;
+                }
+                slider_count--;
+                $slider.animate({
+                    left: '+=' + $slider_width + 'px'
+                }, 'fast');
+                slider_pic();
+            });
+
+            function slider_pic() {
+                if (slider_count >= $slider_child_l - 5) {
+                    $('#btn-right').css({
+                        cursor: 'auto'
+                    });
+                    $('#btn-right').addClass("dasabled");
+                } else if (slider_count > 0 && slider_count <= $slider_child_l - 5) {
+                    $('#btn-left').css({
+                        cursor: 'pointer'
+                    });
+                    $('#btn-left').removeClass("dasabled");
+                    $('#btn-right').css({
+                        cursor: 'pointer'
+                    });
+                    $('#btn-right').removeClass("dasabled");
+                } else if (slider_count <= 0) {
+                    $('#btn-left').css({
+                        cursor: 'auto'
+                    });
+                    $('#btn-left').addClass("dasabled");
+                }
+            }
+
+        });
+    </script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        a,
+        img {
+            border: 0;
+        }
+        
+        body {
+            font: 12px/180% Arial, Helvetica, sans-serif, "宋体";
+        }
+        /* zoombox */
+        
+        .zoombox {
+            width: 686px;
+            /* margin: 20px auto 0 auto; */
+        }
+        
+        .zoompic {
+            border: solid 1px #dfdfdf;
+            width: 684px;
+            height: 394px;
+            background: url(http://www.jsdaima.com/Upload/1476063436/loading.gif) no-repeat 50% 50%;
+        }
+        
+        .sliderbox {
+            height: 76px;
+            overflow: hidden;
+            margin: 6px 0 0 0;
+        }
+        
+        .sliderbox .arrow-btn {
+            width: 38px;
+            height: 76px;
+            background: url(http://www.jsdaima.com/Upload/1476063436/arrow-btn.png) no-repeat;
+            cursor: pointer;
+        }
+        
+        .sliderbox #btn-left {
+            float: left;
+            background-position: 0 0;
+        }
+        
+        .sliderbox #btn-left.dasabled {
+            background-position: 0 -76px;
+        }
+        
+        .sliderbox #btn-right {
+            float: right;
+            background-position: -38px 0;
+        }
+        
+        .sliderbox #btn-right.dasabled {
+            background-position: -38px -76px;
+        }
+        
+        .sliderbox .slider {
+            float: left;
+            height: 76px;
+            width: 605px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 0 0 3px;
+            display: inline;
+        }
+        
+        .sliderbox .slider ul {
+            position: absolute;
+            left: 0;
+            width: 999em;
+        }
+        
+        .sliderbox .slider li {
+            float: left;
+            width: 121px;
+            height: 76px;
+            text-align: center;
+        }
+        
+        .sliderbox .slider li img {
+            border: solid 1px #dfdfdf;
+        }
+        
+        .sliderbox .slider li.current img {
+            border: solid 1px #3366cc;
+        }
+    </style>
+    <!-- <div class="popup"> -->
+        <!-- 左边 -->
+        <div class="zoombox">
+
+            <div class="zoompic"><img src="http://www.jsdaima.com/Upload/1476063436/3427.jpg" width="684" height="394" alt="美女配奥迪A4L墙纸"></div>
+
+            <div class="sliderbox">
+                <div id="btn-left" class="arrow-btn dasabled"></div>
+                <div class="slider" id="thumbnail">
+                    <ul style="width: 847px;">
+                        <li class="current">
+                            <a href="http://www.jsdaima.com/Upload/1476063436/3427.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/14fd.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸01"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/52347.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/41a.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸02"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/23463.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/234fa.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸03"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/3247.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/412saf.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸04"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/26547.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/41356a.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸05"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/2153.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/432sadf.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸06"></a>
+                        </li>
+                        <li>
+                            <a href="http://www.jsdaima.com/Upload/1476063436/3427.jpg" target="_blank"><img src="http://www.jsdaima.com/Upload/1476063436/14fd.jpg" width="115" height="74" alt="美女配奥迪A4L墙纸01"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="btn-right" class="arrow-btn"></div>
+            </div>
+
+        </div>
+      
+    <!-- </div> -->
+
+    <!--slider end-->
+
+
+
+
+</body>
+
+</html>

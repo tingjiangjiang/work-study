@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" value="要复制到剪贴板的内容" id="clipboard"/>
+	<script type="text/javascript">
+
+		var clipboardEl = document.getElementById('clipboard');
+		clipboardEl.addEventListener('click', function(event){
+		    clipboardEl.select();
+		    if(document.execCommand) {
+		        var rs = document.execCommand('copy', false);
+		        if(rs) {
+		            alert('复制成功');
+		        }
+		    } else {
+		        alert('当前环境不支持此功能');
+		    }
+		});
+		    console.log(document.execCommand('copy'));
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var time1 = "2019-11-26-09:09:11";
+		var time2 = time1.replace(/-/g,'/');
+		console.log(time2);
+		var date = new Date(time2);
+		console.log(date);
+		var date2 = date.getTime().toString();//将数字转换为字符串。
+		console.log(date2);
+		var date3 = date.getTime();
+		console.log(date3);
+		var date4 = date2.substr(0,10);
+		console.log(date4);
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//发现forEach遍历和用for遍历函数的不同点，forEach不会改变原数组的值，常用来遍历元素，要对数组进行操作的话，还是用for循环比较好。
+		function titleCase(str){
+			var arr = str.split(" ");
+			// alert(arr+"arr");
+			var arr1 = [];
+			arr.forEach(function(item){
+				item = item.slice(0,1).toUpperCase()+item.slice(1).toLowerCase();
+			})
+			return arr.join(" ")
+			// 
+			// 
+			// 
+			// for(var i=0;i<arr.length;i++){
+			// 	arr[i] = arr[i].slice(0,1).toUpperCase()+arr[i].slice(1).toLowerCase();
+			// }
+			// return arr.join(" ") 
+		}
+		console.log(titleCase("my name is esay"));
+	</script>
+</body>
+</html>

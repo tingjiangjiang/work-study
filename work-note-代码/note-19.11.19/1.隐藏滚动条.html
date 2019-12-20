@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条的隐藏</title>
+	<style type="text/css">
+		/*PC 端
+PC 端对兼容性的要求相对来说要高一点，所有可以换一种方法，大致思路就是在内容div外面包一个父容器div，设置 overflow: hidden，内容div设置 display-x: hidden; display-y: auto; 最后设置父容器div的宽度小于内容div的宽度或者设置内容div的 margin-right 为负值就可以了。*/
+		.outer {
+   width: 300px;
+   height: 300px;
+   overflow: hidden;
+     border:1px solid #000;
+
+ }
+   .content {
+     width: 330px;
+     /*margin-right: -15px;*/
+     height: 100%;
+     overflow-x: hidden;
+     overflow-y: auto;
+     /*background: red;*/
+     /*padding-top: 100px;*/
+ 
+     p:not(:first-child) {
+       margin-top: 100px;
+     }
+   }
+ }
+	</style>
+</head>
+<body>
+	<div class="outer">
+    <div class="content">
+      <p>1111</p>
+      <p>222</p>
+      <p>333</p>
+      <p>444</p>
+      <p>1111</p>
+      <p>222</p>
+      <p>333</p>
+      <p>444</p>
+      <p>1111</p>
+      <p>222</p>
+      <p>333</p>
+      <p>444</p>
+      <p>1111</p>
+      
+    </div>
+</div>
+</body>
+</html>
