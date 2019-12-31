@@ -8,11 +8,9 @@
         *{ margin: 0; padding: 0; }
         ul{ list-style: none; }
         a{ text-decoration: none; }
-
         #warpper{ width: 800px; height: 600px; margin: 20px auto;}
         .container{ width: 100%; height: 100%; overflow: hidden; position: relative; overflow-x: scroll; }
-
-        .imgList{ width: 4000px; position: absolute; z-index: 5; left:0;}
+        .imgList{ width: 4000px; position: absolute; z-index: 5; left:0;transition: left 0.5s ease}
         .imgList>li{ float: left; width: 200px; height: 600px; padding-right:100px;}
         .imgList>li>img{ width: 100%; height: 100%; }
 
@@ -25,6 +23,9 @@
         .dollList li{ float: left; margin-right: 10px; }
         .dollList li.sec a{ background: orange; }
         .dollList li a{ width: 15px; height: 15px; background: rgba(230,230,230,0.6); border-radius: 50%; display: inline-block;  }
+        .noneClick{
+            cursor: not-allowed;pointer-events:none
+        }
     </style>
 </head>
 <body>
@@ -60,31 +61,43 @@
 	//左点击事件
 	my$("pre").addEventListener('click',function(){
 		var num = 0;
-		var left = parseInt($(".imgList").css("left"))
-		//点击往右走一张图片
-		if(left==0){
-			left=-1200;
-			num=-3200;
+        var left = parseInt($(".imgList").css("left"))
+		//点击往上走一张图片
+		if(left>=0){
+			num=0;
 		}else{
 			num = left+300
 		}	
 		var str = num+'px'
 		$(".imgList").css("left",str);
-
+        addclass(str);
 	})
 	//右点击事件
 	my$("next").addEventListener('click',function(event){
 		var num = 0;
 		var left = parseInt($(".imgList").css("left"))
+        console.log(left);
 		//点击往右走一张图片
-		if(left==-1200){
-			event.preventDefault();
+		if(left<=-600){
+            num = -600;
 		}else{
 			num = left-300
 		}		
 		var str = num+'px'
 		$(".imgList").css("left",str);
-
+        addclass(str);
 	})
+    function addclass(left){
+        if(left>=0){
+            $(".pre").addClass("noneClick");
+            $(".next").removeClass("noneClick");
+    }else if(left<=-600){
+        $(".pre").removeClass("noneClick");
+            $(".next").addClass("noneClick");
+        }else{
+            $(".next").removeClass("noneClick");
+            $(".pre").removeClass("noneClick");
+        }
+    }
 </script>
 </html>

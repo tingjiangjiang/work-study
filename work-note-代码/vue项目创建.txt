@@ -1,0 +1,9 @@
+VUE 搭建项目
+1.安装脚手架
+   npm install -g @vue/cli
+2.创建项目
+  vue create zgnews
+3、cnpm（淘宝镜像，下载会快一些）
+npm install -g cnpm –registry=https://registry.npm.taobao.org
+4. 全局安装webpack
+npm install webpack -g
