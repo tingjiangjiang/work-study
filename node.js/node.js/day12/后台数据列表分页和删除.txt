@@ -1,0 +1,16 @@
+﻿一、后台列表分页
+	1、查询后台的分页数据，使用db.pagination;打印调试数据，没问题后进行第二步
+	2、把adminList.html的列表数据改成动态数据
+	3、使用pageMe.js做静态的分页功能（需要css和js）
+	4、在后台使用db.count查询数据总量和计算页码,打印调试
+	5、写promise.all合并db.count和db.pagination的查询数据（注意传递总页码和总数量）；pageMe分页能够正常显示数据的分页。
+	6、在pageMe的callback里面编写页码的跳转功能
+	7、设置pageMe的pageNum，显示当前页(需要后台传递当前页currpage到客户端)
+
+	注意：currpage,pages,count需要使用data-[key]来存储，使用jquery的data方法来获取
+	
+二、后台列表删除
+
+	1、修改配置删除的路由（注意给删除的id）
+	2、调用数据库的db.delete功能删除数据(可以使用deleteMany删除)
+	3、当删除最后一页的最后一条数据后，页码应该跳转到上一页；这个功能需要判断数据库的数据总量和当前传入的currpage

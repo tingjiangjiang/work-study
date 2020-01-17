@@ -1,0 +1,130 @@
+body{
+    background-color: #f3f3f3;
+}
+.wrap-bc{
+    background-color: #fff;
+}
+.wrap1{
+    width: 1078px;
+    margin:0 auto;
+}
+
+
+#sort .wrap1 ul {
+    padding: 20px 0 30px;
+}
+#sort .wrap1 ul li{
+    float: left;
+    height: 28px;
+    line-height: 28px;
+}
+#sort .wrap1 ul li a{
+    margin:0 26px;
+    color: #000;
+}
+#sort .wrap1 ul li.active{
+    background-color: #0b68c8;
+}
+#sort .wrap1 ul li.active a{
+    color: #fff;
+}
+#sort .wrap1 .most-list{
+    height: 40px;
+    background-color: #f8f8f8;
+    border: 1px solid #dedede;
+    border-left: 0;
+}
+#sort .wrap1 .most-list p {
+    float: left;
+    border-left: 1px solid #dedede;
+}
+#sort .wrap1 .most-list p a{
+    display: block;
+    margin:0 20px;
+    color: #0b68c8;
+    height: 40px;
+    line-height: 40px;
+}
+#sort .wrap1 .most-list p.living {
+   border-top:4px solid #0b68c8;
+   background-color: #fff;
+}
+#sort .wrap1 .most-list p.living a{
+    height: 37px;
+    line-height: 37px;
+    color: #000;
+}
+#films-1{
+    border-bottom: 1px solid #dedede;
+}
+#films-1 ul.first{
+    padding-top: 30px;
+}
+#films-1 ul li{
+    position: relative;
+    width: 205px;
+    height: 337px;
+    float: left;
+    margin-left: 13px;
+    margin-bottom: 30px;
+}
+#films-1 ul li.first{
+    margin-left: 0;
+}
+#films-1 ul li img{
+    width: 205px;
+    height: 287px;
+
+}
+#films-1 ul li .txt{
+
+}
+#films-1 ul li .txt .left{
+      float: left;
+}
+#films-1 ul li .txt .left .titled a{
+    font-weight: bold;
+    color: #000;
+}
+#films-1 ul li .txt .score{
+      float: right;
+      color:orange;
+}
+#films-1 ul li .txt .score span{
+    font-size: 24px;
+}
+#films-1 ul li .txt .score i{
+    font-size: 16px;
+}
+#films-1 ul li .film-type{
+  position: absolute;
+  right: 5px;
+  bottom: 70px;
+  background-color: #333;
+  color: #fff;
+  padding:2px 5px;
+}
+#films-1 ul li .type{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 18px;
+    background: url(../images/vip-tips.png) no-repeat;
+
+}
+#films-1 ul li .type.vip-free{
+    width: 75px;
+    background-position: -104px 0;
+}
+#films-1 ul li .type.vip-discount{
+    width: 72px;
+    background-position:0 0;
+}
+#films-1 ul li .type.vip-only{
+    width: 100px;
+    background-position: 0 -19px;
+}
+
+#someway.add{
+ margin-top: 29px;
+}

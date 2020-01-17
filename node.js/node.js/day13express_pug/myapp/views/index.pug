@@ -1,0 +1,14 @@
+extends layout
+
+//- 混入和block都是顶级节点
+//- 无参数混入
+mixin title
+    h1 我是混入
+//- 带参数混入
+mixin setTitle(newTitle)
+    h1=newTitle
+
+block content
+    div 我是子类的内容
+    +title
+    +setTitle('带参数')

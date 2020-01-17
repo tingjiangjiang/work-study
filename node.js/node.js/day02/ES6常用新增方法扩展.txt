@@ -1,0 +1,11 @@
+字符串新增方法：
+includes()，startsWith(), endsWith()
+
+数值新增方法：
+Number.isFinite(), Number.isNaN(),Number.parseInt(), Number.parseFloat(),Number.isInteger()
+
+数组新增方法：
+find(),findIndex(),includes(),flat()
+
+对象新增方法：
+Object.is(),Object.assign(),Object.keys(),Object.values(),Object.fromEntries()

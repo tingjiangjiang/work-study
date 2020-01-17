@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		function fn(data) {
+			
+			var p = new Promise((resolve, reject) => {//promise承诺
+				setTimeout(() => {
+					resolve(data);//回调函数
+				}, 300);
+			});
+			return p;//这里可以返回p正是Promise在起作用
+		}
+		fn(1)//then可以写多个
+			.then(res => {
+				console.log(res);//1
+				return fn(2); //return一个全新的promise对象，下面的一个then就是当前这个全新的promise对象调用的
+				// return ++res;//return的内容可以看做是当前promise对象的resolve()参数
+			})
+			.then(res => {
+				console.log(res);//2
+				return fn(3);
+				// return ++res;
+			})
+			.then(res => {
+				console.log(res);//3
+				return fn('你好世界');
+			})
+			.then(res=>{
+				console.log(res);//你好世界
+			})
+			.catch(err => {console.log(err+'gugu')});
+	</script>
+</html>

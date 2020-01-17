@@ -1,0 +1,47 @@
+﻿1、登录拦截
+
+因为不知道具体得拦截对象（对应的url路径），所以拦截操作在express项目中是以一个中间件的形式存在的（写在所有路由配置前）；在写的时候务必要注意/login登录页面路由的判断，否则进入死循环
+
+登录拦截在express中有两种写法：
+
+1、在对应的路由里面写，比如需要拦截/play路由，那在/play路由中增加一个中间件方法即可，该中间件方法实现拦截(弊端就是每个需要拦截的路由都需要写)
+
+router.get(
+	'/',
+	// 登录拦截
+	function(req, res, next) {
+		// let { baofenglogin } = req.signedCookies;
+		// if (baofenglogin) {
+		// 	next();
+		// } else {
+		// 	res.redirect('/login');
+		// }
+		next();
+	},
+	function(req, res, next) {
+		res.render('play');
+	}
+);
+
+2、在app.js中写，拦截的代码也是一个中间件，放在所有的路由配置前
+//登录拦截
+app.use((req, res, next) => {
+	// 根据用户传入的cookie判断用户是否已登录
+	let { baofenglogin } = req.signedCookies;
+	if (baofenglogin) {
+		next();
+	} else if (req.url == '/play') {
+		// 判断用户访问的路径是否需要拦截
+		res.redirect('/login');
+	} else {
+		next();
+	}
+});
+...
+...
+// 路由配置
+app.use('/', indexRouter);
+app.use('/demand', demandRouter);
+app.use('/play', playRouter);
+app.use('/login', loginRouter);
+app.use('/register', registerRouter);

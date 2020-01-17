@@ -1,0 +1,79 @@
+﻿路由：路由是由HTTP请求方法（GET，POST）和请求路径（URL）共同构成的。如：
+
+//index.js
+method		url
+GET		/index
+POST		/index
+
+所有的请求都需要经过服务器的处理，解释如下：
+
+客户端每一次发起请求后，服务器的request监听函数会收到req请求对象，代码如下：
+
+let server = http.createServer((req,res)=>{//req就是请求对象})
+或
+server.on('request',(req,res)=>{//req就是请求对象})
+
+req请求对象中包含了客户端的请求信息，常见的有：method（请求方法）,url（请求的href完整路径，可以使用url模块解析）
+
+服务器需要根据url的pathname来进行路由（不同的请求路径给用户不同的响应页面）,代码如下：
+
+switch(pathname){
+
+	case '/' :
+		render('index.html');
+		break;
+	case '/about' :
+		render('about.html');
+		break;
+	case '/fav' :
+		render('fav.html');
+		break;
+	...
+
+	default :
+		render('error.html');
+		break;
+
+}
+需要注意的是错误的处理一般情况下放到最后去处理（当前面的所有路径无法匹配的时候进入错误页面）
+
+封装操作：
+	
+	上面的switch里面的路由处理方式不太合理，因为路由不仅仅是路径的变化（URL的变化），还包含有请求方法（GET和POST），那也就是说index.html或about.html的处理可能有get和post两种方式，如果把处理逻辑都写到switch...case里面会很乱，不好管理。
+	此时我们想到模块化操作，把路由的处理单独做成一个模块，比如：router.js，代码如下：
+
+	switch (pathname) {
+		// 首页
+		case '/':
+		case '/index':
+		case '/index.html':
+			indexRouter(req, res);
+			break;
+		// 关于页
+		case '/about':
+			aboutRouter(req, res);
+			break;
+		default:
+			// 处理错误页
+			errorRouter(req, res);
+			break;
+	}
+把各个页面的处理逻辑再次拆分到各个页面中，比如:indexRouter和aboutRouter等操作，代码如下：
+	function index(req, res) {
+		if (req.method == 'GET') {
+			renderView('index', res);
+		} else {
+			req.on('data', data => {});
+			req.on('end', () => {
+			res.end('success');
+		});
+		}
+	}
+
+	module.exports = index;
+
+
+重要！！！一切请求都要经过服务器的处理，所以服务器对客户端的一切响应都是服务器主动编写的代码。
+
+
+

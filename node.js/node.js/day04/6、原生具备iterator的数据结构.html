@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<div>5</div>
+	</body>
+	<script>
+		/*
+            原生具备 Iterator 接口的数据结构如下。
+            Array
+            Map
+            Set
+            String
+            TypedArray
+            函数的 arguments 对象
+            NodeList 对象 :指的是DOM节点的集合
+        */
+		// NodeList 使用迭代器遍历示例
+		let divs = document.getElementsByTagName('div');
+		for (let div of divs) {
+			console.log(div.innerText);
+		}
+	</script>
+</html>

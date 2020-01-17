@@ -1,0 +1,10 @@
+﻿重要！！！一定要注意缩进，缩进决定了dom的父子结构关系。
+
+
+pug的属性编写：标签后面跟圆括号，圆括号内部给属性赋值，多个属性通过空格或逗号隔开,如：
+	body
+		div(id='nav' class='navbar')
+		或
+		div(id='nav',class='navbar')
+
+

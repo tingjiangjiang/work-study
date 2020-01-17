@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 扩展运算符(spread)，表现形式为 ...
+		// 示例一：
+		// var stu = {
+		// 	name: '马云',
+		// 	age: 22,
+		// 	f: function() {
+		// 		console.log(this.name);
+		// 	},
+		// };
+		// var obj = stu;
+		// stu.name = '马糊涂';
+		// console.log(stu);
+		// console.log(obj);
+		// var obj = {
+		// 	...stu,
+		// };
+		// stu.name = '马糊涂';
+		// console.log(obj);
+
+		// 示例二：
+		// var store = {
+		// 	state: {
+		// 		title: '标题党',
+		// 	},
+		// 	getters: {
+		// 		get_Title() {
+		// 			return this.state.title;
+		// 		},
+		// 	},
+		// 	mutations: {
+		// 		set_Title(newTitle) {
+		// 			this.state.title = newTitle;
+		// 		},
+		// 	},
+		// 	acitons: {},
+		// };
+		// var obj = {
+		// 	data: {
+		// 		...store.state,
+		// 	},
+		// 	methods: {
+		// 		...store.getters,
+		// 		...store.mutations,
+		// 	},
+		// };
+		// console.log(obj);
+		// 至于对象德扩展运算符是否能够深拷贝需要验证??
+
+		// 扩展运算符关于数据的操作 ...
+		// var names = ['刘备', '貂蝉', '大乔', '小乔', { name: '诸葛亮', z: '孔明' }, ['孙悟空', '猪八戒']];
+		// // var str_names = ...names;//错误的用法
+		// // console.log(str_names);
+		// var sub_names = [...names];
+		// names[0] = '大哥';
+		// names[4]['z'] = '诸葛孔明';
+		// names[5][1] = '天蓬元帅';
+		// console.log(names);
+		// console.log(sub_names);
+	</script>
+</html>

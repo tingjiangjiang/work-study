@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// 请求城市列表
+		function citys() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/citys.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+		// 用来请求电影院列表
+		function cinemas() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/cinemas.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+		// promise_race的使用
+		// promise.race的意思是比赛、竞赛；比较race列表中的promise，哪个promise请求响应速度最快，则返回它的请求数据，其他的淘汰。
+		Promise.race([citys(), cinemas()])
+			.then(rst => {
+				console.log(rst);
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		
+	</script>
+</html>

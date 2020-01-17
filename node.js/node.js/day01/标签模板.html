@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 标签模板严格来讲已经不属于模板字符串的范围了，应该是属于函数参数的一种用法。
+		// 作用：标签模板可以用来过滤html内容
+		// 作用：实现国际化
+		function tag() {
+			let s;
+			for (let i = 1; i < arguments.length; i++) {
+				let arg = arguments[i];
+				s += arg
+					.replace(/&/g, '&amp;')//正则替换
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;');
+			}
+			console.log(arguments);
+		}
+		let user = "<script>alert('123')<\/script>";
+		let pwd = 'root';
+		let tmp = `用户名：${user}密码：${pwd}`;
+		console.log(tmp);
+		tag('标签模板');
+		tag`用户名${user}${pwd}`;
+	</script>
+</html>

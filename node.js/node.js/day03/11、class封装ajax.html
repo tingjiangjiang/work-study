@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		const CITYS = 'citys.php';
+		const CINEMAS = 'cinemas.php';
+
+		class Http {
+			static baseUrl = 'http://www.bestqingshan.top/movie/';
+			constructor() {
+				// this.baseUrl = 'http://www.bestqingshan.top/movie/';
+			}
+			static common(path, data = {}) {
+				var p = new Promise((resolve, reject) => {
+					$.ajax({
+						type: 'GET',
+						url: `${this.baseUrl}${path}`,
+						data,
+						dataType: 'json',
+						success: function(response) {
+							resolve(response);
+						},
+						error: function(err) {
+							reject(err);
+						},
+					});
+				});
+				return p;
+			}
+			// 请求城市列表
+			// static关键字要放在async前面
+			static async citys(callback) {
+				let rst = await this.common(CITYS).catch(err => {
+					callback(err);
+				});
+				if (rst != undefined) callback(rst);
+			}
+			// 请求影院列表
+			static async cinemas(callback) {
+				try {
+					let rst = await this.common(CINEMAS);
+					callback(rst);
+				} catch (error) {
+					callback(error);
+				}
+			}
+		}
+		// var http = new Http();
+		// 成员方法
+		// http.citys(rst => {
+		// 	console.log(rst);
+		// });
+		// 静态方法
+		// Http.citys(rst => {
+		// 	console.log(rst);
+		// });
+	</script>
+</html>

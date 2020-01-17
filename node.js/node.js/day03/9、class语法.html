@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+		          面向过程和面向对象
+		          什么是面向过程：所谓的面向过程编程就是把编程问题过程化，步骤化；实际表现是各种函数调用。
+		          什么是面向对象？
+		          为什么要用面向对象？那是因为面向过程不能够解决复杂问题，为什么不能？因为有些问题本身非常复杂，不适合拆解，或者是说拆解后仍然非常复杂， 一旦一个过程出错，整体无法运行。
+
+		          // 类、对象
+		          现实世界就是以类来划分的
+		          什么是类：类是用来描述行为和属性的，也就是说类是一批具备相同行为和属性的事物的集合。
+		          为什么类要描述属性和行为：因为属性和行为就表示了一切。行为是建立在属性的基础上的，行为就是属性的变化引起的。
+
+		          对象是类的一个具象，也可以说是类的一个实例化；这样来看的话，类是一个抽象的概念。
+		          对象具备类的一切行为和属性。
+
+		      */
+		class Animal {
+			// 在es6的class中描述属性，需要写在constructor方法中，否则报错
+			// 属性在程序中的表现就是一个变量
+			// 行为咋程序中的表现就是一个方法或函数
+			// ES6中的方法不能写function关键字,写了会报错
+
+			// constructor方法在es6的class中是内置方法，用来初始化
+
+			// class内的方法之间不要写逗号，会报错
+
+			// 类中描述的属性在方法中使用的时候，需要加this
+			constructor() {
+				this.type = '动物'; //这是属性描述
+				// var type = '动物'; //这是局部变量
+			}
+			sayHi() {
+				// console.log(type);
+				console.log(this.type);
+			}
+		}
+		var animal = new Animal();
+		animal.sayHi();
+	</script>
+</html>

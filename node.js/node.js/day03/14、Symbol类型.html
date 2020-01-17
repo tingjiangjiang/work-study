@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// Symbol是ES6新增的一个全新的数据类型，从此后，JS就拥有了7中数据类型：
+		// undefined,null,Number,String,Boolean,Object,Symbol
+
+		// Symbol的意义是产生一个独一无二的值，保证不重复
+		// let s1 = Symbol();
+		// let s2 = Symbol();
+		// console.log(s1 == s2); //false
+
+		// description 的意思是描述，相当于代码中的注释。增加可读性，没有任何实际意义。
+		// let s1 = Symbol('title');
+		// let s2 = Symbol('title');
+		// console.log(s1 == s2);
+		// 场景一：
+		// var obj = {
+		// 	[Symbol('name')]: '张三',
+		// 	name: '王五',
+		// 	age: 22,
+		// };
+		// obj.name = '李四';
+		// obj[Symbol('name')] = '李四';
+		// console.log(obj);//{age: 22, name: "李四", Symbol(name): "张三", Symbol(name): "李四"}
+
+		// var title = Symbol('name');
+		// var obj = {
+		// 	[title]: 'zhangsan',
+		// 	age: 22,
+		// };
+		// console.log(obj[title]);
+
+		// 场景二：
+		// var hiName = Symbol('hiName');
+		// class Tigger {
+		// 	constructor() {
+		// 		this.type = '老虎';
+		// 	}
+		// 	[hiName]() {
+		// 		console.log('hi');
+		// 	}
+		// 	sayHi() {
+		// 		this[hiName]();
+		// 		console.log('sayHi');
+		// 	}
+		// }
+		// var tigger = new Tigger();
+		// tigger.sayHi();//hi sayHi
+
+		// symbol.for：key值相同的symbol值是相等的。
+		// let s3 = Symbol.for('title');
+		// let s4 = Symbol.for('title');
+		// console.log(s3 == s4);// true 
+		// console.log(Symbol.keyFor(s3)); //title 获取当前symbol的key
+	</script>
+</html>

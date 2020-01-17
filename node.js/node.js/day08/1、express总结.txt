@@ -1,0 +1,83 @@
+Express使用总结：
+
+一、路由
+    路由是指路径（url）的变化，常见的路径变化包含（pathname和hash）
+    路径的变化需要服务器响应不同的页面，服务器如何响应？服务器根据pathname或hash的变化来判断需要处理的页面
+
+    express的路由强调路由是由两部分构成的:Http请求方法+url或path路径
+
+    路由的http方法：常见的有get,post,all
+    路由的url或path路径：一般是/开始，需要注意的是src,href,action等操作的路径需要与路由的路径配置一致；
+    子路由的配置：采用路由级别的路由：例如：
+        app.use('/index',indexRouter)
+        router.get('/user',(req,res)={}) // /index/user
+    路径正则：/a+b,/a?b,/a*b ...
+    路径参数：/index/:id(/index/33),/index/:id/user/:sid(/index/33/user/13)
+
+    中间件方法：常规的中间件方法有二或三个参数：req,res或req,res,next;错误处理中间件有四个参数：err,req,res,next
+
+    一般常规的路由（get或post等操作）使用两个参数就够了；
+    自定义中间件的时候必须使用三个参数（req,res,next）；
+    错误处理中间件必须是四个参数，且该中间件的进入需要next(err),常规的next方法无法进入错误处理。
+
+    需要注意的是：在路由中存在多个中间件方法的时候，只能有一次end或send操作，也就说一般的send或end都放在多个中间件方法中的最后一个里面。
+
+
+二、中间件
+
+    中间件根据存在情况可以分为三种：自定义中间件，内置中间件，第三方中间件
+
+    自定义中间件：
+    app.use((req,res,next)=>{
+        if(!req.islogin){
+            res.redirect('/login')
+        }
+        else{
+            next();
+        }
+    })
+    自定义中间件函数封装
+    gparser.js
+    function gparser(options){
+        //处理options参数
+        return (req,res,next)=>{
+            //TODO SOMING
+            next();
+        }
+    }
+
+    app.js
+
+    let gparser = require('./middleware/gparser.js');
+    app.use(gparser(options));
+
+    内置中间件：
+    express.json()
+    express.urlEncoded({extends:false})
+    express.static(path.join(__dirname,'public'))
+
+    第三方中间件：
+    http-error
+    nodemon
+    cookie-parser
+    express-session
+    iformable ??
+    multer
+    logger
+
+
+三、参数的获取
+
+    get请求参数：req.query或req.params
+    post请求参数：req.body
+
+四、header头部的设置
+
+    res.status(201)
+    res.set('content-type','text/html')
+    res.set({'content-type':'text/html','content-length':130})
+    res.type('html');
+
+    res.statusCode = 200;
+    res.setheader('content-type','text/html');
+    res.writeHead(200,{'content-type':'text/html','content-length':130})

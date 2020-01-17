@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./load.css" />
+	</head>
+	<body>
+		<div onclick="loadMore()">加载更多</div>
+		<div class="spinner">
+			<div
+				class="
+                     spinner-container
+                     container1"
+			>
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container2">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+			<div class="spinner-container container3">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+				<div class="circle4"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var loader = loadUI();
+		var spinner = document.getElementsByClassName('spinner')[0];
+
+		// 生成器
+		function* loadUI() {
+			showLoadingScreen();
+			yield loadUIDataAsynchronously();
+			hideLoadingScreen();
+		}
+		// 异步加载数据
+		function loadUIDataAsynchronously() {
+			setTimeout(() => {
+				// 卸载UI
+				let state = loader.next();
+				// 判断当前的遍历器是否已经结束，如果结束了重置loadUI
+				if (state.done) {
+					loader = loadUI();
+				}
+			}, 2000);
+		}
+		// 显示加载动画
+		function showLoadingScreen() {
+			spinner.style.display = 'block';
+		}
+		// 隐藏加载动画
+		function hideLoadingScreen() {
+			spinner.style.display = 'none';
+		}
+		// 加载更多按钮点击事件
+		function loadMore() {
+			// 加载UI
+			loader.next();
+		}
+	</script>
+</html>

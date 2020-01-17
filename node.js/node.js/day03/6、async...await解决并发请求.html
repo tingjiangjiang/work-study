@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// 请求城市列表
+		function citys() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/citys.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+		// 用来请求电影院列表
+		function cinemas() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/cinemas.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+
+		async function all(callback) {
+			var city = await citys(); //等待citys的promise resolve，然后才能继续执行
+			var cinema = await cinemas(); ////等待cinemas的promise resolve，然后才能继续执行
+			callback([city, cinema]);
+		}
+		all(data => {
+			console.log(data);
+		});
+	</script>
+</html>

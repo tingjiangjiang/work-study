@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+		        输入：
+		[{"org":"beijing","attr1":"value1","subOrgs":[{"org":"chaoyang","attr1":"value1","subOrgs":[{"org":"wangjing","attr1":"value1"},{"org":"wangjing1","attr1":"value1"}]}]},{"org":"tianjin","attr1":"value1","subOrgs":[]}]
+		输出：
+		[{"org":"beijing","attr1":"value1"},{"org":"chaoyang","attr1":"value1"},{"org":"wangjing","attr1":"value1"},{"org":"wangjing1","attr1":"value1"},{"org":"tianjin","attr1":"value1"}]
+		*/
+		var source = [
+			{
+				org: 'beijing',
+				attr1: 'value1',
+				subOrgs: [
+					{
+						org: 'chaoyang',
+						attr1: 'value1',
+						subOrgs: [{ org: 'wangjing', attr1: 'value1' }, { org: 'wangjing1', attr1: 'value1' }],
+					},
+				],
+			},
+			{ org: 'tianjin', attr1: 'value1', subOrgs: [] },
+		];
+		var tmp_target = [];
+		var target = [];
+		function f(source) {
+			source.forEach(val => {
+				for (key in val) {
+					var obj = val[key];
+					if (obj instanceof Array) {
+						f(obj);
+					} else {
+						var tmp = {};
+						tmp[key] = obj;
+						tmp_target.push(tmp);
+					}
+				}
+			});
+		}
+		f(source);
+		console.log(tmp_target);
+		// for (var i = 0; i < tmp_target.length; i++) {
+		// 	if (i % 2 == 0) {
+		// 		let org = tmp_target[i];
+		// 		let attr1 = tmp_target[i + 1];
+		// 		if (attr1) {
+		// 			target.push(Object.assign(org, attr1));
+		// 		}
+		// 	}
+		// }
+		// console.log(target);
+	</script>
+</html>

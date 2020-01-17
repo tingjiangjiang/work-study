@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// 请求城市列表
+		function citys() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/citys.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+		// 用来请求电影院列表
+		function cinemas() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/cinemas.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+
+		// 命题：要求这两个请求同时完成？
+		// citys()
+		// 	.then(rst => {
+		// 		console.log('你好');
+		// 		console.log(rst);
+		// 	})
+		// 	.catch(err => {});
+		// cinemas()
+		// 	.then(rst => {
+		// 		console.log('世界');
+		// 		console.log(rst);
+		// 	})
+		// 	.catch(err => {});
+		// promise解决的方式一：
+		citys()
+			.then(rst => {
+				console.log('你好');
+				console.log(rst);
+				return cinemas();
+			})
+			.then(rst => {
+				console.log('世界');
+				console.log(rst);
+			})
+			.catch(err => {});
+		// promise解决的方式二：
+		// promise.all用来解决并发多个请求，多个请求的数据需要统一做处理。
+		// promise.all的数据返回是一个数组，数组的索引次序与请求的次序有关系：
+		/*
+            比如:[cinemas(), citys()]；先返回cinemas的结果
+                 [citys(),cinemas()]；先返回city的结果
+        */
+		// Promise.all([cinemas(), citys()])
+		// 	.then(rst => {
+		// 		console.log(rst);
+		// 	})
+		// 	.catch(err => {
+		// 		console.log(err);
+		// 	});
+		
+	</script>
+</html>

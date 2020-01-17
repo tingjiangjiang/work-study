@@ -1,0 +1,262 @@
+body{
+    background-color: #f3f3f3;
+}
+.title{
+    font-size: 24px;
+    height: 54px;
+    line-height: 54px;
+    margin-top: 15px;
+}
+
+
+
+
+#banner {
+    position: relative;
+    height: 440px;
+
+}
+#banner .img-list li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+#banner .img-list li.show{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#banner .img-list li img{
+    width: 100%;
+    height: 100%;
+}
+
+#banner .btn{
+    position: absolute;
+    top:50%;
+    margin-top: -22px;
+    width: 43px;
+    height: 43px;
+    background: url(../images/vip-tips.png) 0 -50px no-repeat;
+}
+#banner .btn-prev{
+    left:55px
+}
+#banner .btn-next{
+    background-position: -43px -50px;
+    right:55px;
+}
+
+
+#banner .focus-list{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: url(../images/vip-tips.png) 0 -100px no-repeat;
+}
+#banner .focus-list ul{
+    padding: 10px 0;
+    text-align: center;
+}
+#banner .focus-list ul li{
+    display: inline-block;
+    position: relative;
+    margin:0 6px;
+}
+#banner .focus-list ul li span{
+    position: absolute;
+    top:0;
+    left: 0;
+    border: 2px solid #e6e6e6;
+    width: 62px;
+    height: 44px;
+    visibility: hidden;
+
+}
+#banner .focus-list ul li.active span{
+    visibility: visible;
+}
+#banner .focus-list ul li img{
+    vertical-align: middle;
+} 
+
+#banner .focus-list ul i{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    filter:alpha(opacity=40);
+
+}
+#banner .focus-list ul li.active i{
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+
+
+/* VIP特权 */
+#vip{
+    position: relative;
+    height: 111px;
+   
+    
+}
+#vip .container{
+    position: relative;
+    height: 111px;
+    width: 1070px;
+    /* background-color: pink; */
+    margin:0 auto ;
+    overflow: hidden;
+}
+#vip .container ul{
+    position: absolute;
+    top:0;
+    left: 0;
+   width: 2354px;
+   height: 111px;
+   
+   
+}
+#vip .container ul li{
+    width: 200px;
+    height: 111px;
+    float: left;
+    margin:0 7px;
+    /* background-color: skyblue; */
+}
+#vip .container ul li a{
+    display: block;
+    width: 200px;
+    height: 111px;
+    font-size: 0;
+}
+#vip .btn{
+    position: absolute;
+    width: 15px;
+    height: 26px;
+    top:50%;
+    margin-top: -13px;
+}
+#vip .btn-prev{
+    left: 0;
+    background: url(../images/vip-bgs.png) 0 -124px no-repeat;
+}
+#vip .btn-next{
+    right: 0;
+    background: url(../images/vip-bgs.png) -16px -124px no-repeat;
+}
+#vip .container ul .item1 a{
+    background: url(../images/vip-powers.png) no-repeat;
+}
+#vip .container ul .item2 a{
+    background: url(../images/vip-powers.png) -200px 0 no-repeat;
+}
+#vip .container ul .item3 a{
+    background: url(../images/vip-powers.png) -400px 0 no-repeat;
+}
+#vip .container ul .item4 a{
+    background: url(../images/vip-powers.png) -600px 0 no-repeat;
+}
+#vip .container ul .item5 a{
+    background: url(../images/vip-powers.png) -800px 0 no-repeat;
+}
+#vip .container ul .item6 a{
+    background: url(../images/vip-powers.png) -1000px 0 no-repeat;
+}
+#vip .container ul .item7 a{
+    background: url(../images/vip-powers.png) -1200px 0 no-repeat;
+}
+#vip .container ul .item8 a{
+    background: url(../images/vip-powers.png) -1400px 0 no-repeat;
+}
+#vip .container ul .item9 a{
+    background: url(../images/vip-powers.png) -1600px 0 no-repeat;
+}
+#vip .container ul .item10 a{
+    background: url(../images/vip-powers.png) -1800px 0 no-repeat;
+}
+#vip .container ul .item11 a{
+    background: url(../images/vip-powers.png) -2000px 0 no-repeat;
+}
+
+
+
+/* VIP广告 */
+#vip-ad{
+    padding-top: 30px;
+    height: 80px;
+}
+#vip-ad img{
+    vertical-align: center;
+}
+
+
+/* 强力推荐 */
+#films ul li{
+    position: relative;
+    width: 205px;
+    height: 337px;
+    float: left;
+    margin-left: 18px;
+    margin-bottom: 30px;
+}
+#films ul li.first{
+    margin-left: 0;
+}
+#films ul li img{
+    width: 205px;
+    height: 287px;
+
+}
+#films ul li .txt .left{
+      float: left;
+}
+#films ul li .txt .left .titled a{
+    font-weight: bold;
+    color: #000;
+}
+#films ul li .txt .score{
+      float: right;
+      color:orange;
+}
+#films ul li .txt .score span{
+    font-size: 24px;
+}
+#films ul li .txt .score i{
+    font-size: 16px;
+}
+#films ul li .film-type{
+  position: absolute;
+  right: 5px;
+  bottom: 70px;
+  background-color: #333;
+  color: #fff;
+  padding:2px 5px;
+}
+#films ul li .type{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 18px;
+    background: url(../images/vip-tips.png) no-repeat;
+
+}
+#films ul li .type.vip-free{
+    width: 75px;
+    background-position: -104px 0;
+}
+#films ul li .type.vip-discount{
+    width: 72px;
+    background-position:0 0;
+}
+#films ul li .type.vip-only{
+    width: 100px;
+    background-position: 0 -19px;
+}
+

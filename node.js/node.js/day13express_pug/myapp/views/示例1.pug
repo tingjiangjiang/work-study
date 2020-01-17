@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Document
+  body
+    //- 重要！！！一定要注意缩进，缩进决定了dom的父子结构关系。
+    //- 属性（多个属性使用空格或逗号隔开）
+    div(id="nav",class="navbar",data-currpage=1)
+    //- 不转义属性(不转义属性使用!=)
+    div(id!="<code>")
+    //- boolean属性(和常规的html用法一致，常见的boolean属性主要包含在表单中)
+    form(action="")
+      input(type="checkbox" checked=false)
+    
+    //- 单行代码书写
+    //- 代码是不输出的
+    - var name = 'HandClap'
+
+    //- 多行代码书写
+    -
+      var age  = 19;
+      var address = '土耳其';
+      var code = '<i>代码段</i>';
+    //- 标签中使用文本（空格隔开）
+    p 我们走在大路上
+
+    //- 标签中使用变量(使用=，注意=左右不要加空格)
+    p=name
+
+    //- 不转义 
+    p=code
+    //- 转义
+    p!=code
+
+    //- 双斜杠的注释内容会输出到html，双斜杠加横杠的注释不输出
+    // 我的世界
+
+
+    //- 条件语句
+
+    - if(age>20)
+        p 成年人
+    - else
+        p 未成年人
+        p 不能去网吧
+    
+    //- if条件语句前面可以不写 - 横杠
+    if(age>20)
+        p 成年人
+    else
+        p 未成年人
+        p 不能去网吧
+
+    //- 循环语句
+
+    - var names = ['习近平','胡锦涛','江泽民','华国锋','赵紫阳','毛泽东']
+
+    ul
+      each name,index in names
+        li
+          span=index
+          a(href="http://www.baidu.com")=name
+
+    //- include包含
+    include footer.pug
+    

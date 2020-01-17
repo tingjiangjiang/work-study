@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 成员变量和成员方法：给对象准备的变量和方法
+		// 静态变量和静态方法（类变量和类方法）：给类准备的变量和方法
+
+		// 成员方法和成员变量可以有多个副本拷贝，但是静态方法和静态变量独一份
+		class Tigger {
+			static type = '动物世界'; //静态变量
+			// 静态方法
+			static sayHi() {
+				console.log('我非常想念赵忠祥');
+			}
+			// constructor里面是声明成员变量的地方
+			constructor(newType) {
+				this.type = newType;
+			}
+		}
+		// console.log(Tigger.type);
+		// Tigger.sayHi();
+		let tigger = new Tigger('东北虎');
+		let tigger_1 = new Tigger('华南虎');
+		//
+		// console.log(tigger.type);
+		// tigger.sayHi();
+	</script>
+</html>

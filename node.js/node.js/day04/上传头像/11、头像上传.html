@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+		<style>
+			img {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 
+            GET和POST的区别：
+            1、GET请求的参数在url中，POST的参数在body（请求体）中
+            2、get请求的参数是明文，容易暴露请求信息，post请求的参数不可见，相对来说要安全一些
+            3、get请求的数据大小有限制（浏览器对url的长度限制），post请求的参数理论上来说没有限制
+
+            urlencoded编码方式：name=zhangsan&age=22&address=beijing;(键值对)))
+
+            对于表单上传文件来说：必须是post请求，enctype必须设置multipart/form-data
+         -->
+		<!-- <form method="POST" action="http://www.bestqingshan.top/demo/ajaxFileUpload.php" enctype="multipart/form-data">    //enctype:编码类型
+			<input type="file" name="myfile" />
+			<input type="submit" />
+		</form> -->
+		<img src="./20170823110912_ezTtH.jpeg" alt="" onclick="selectImg()" />
+		<form>
+			<input id="myfile" type="file" multiple hidden />
+		</form>
+		<button onclick="upload()">上传</button>
+	</body>
+	<script>
+		var file = null;
+
+		// img标签的点击事件
+		function selectImg() {
+			// 触发input （myfile）的单击事件
+			$('#myfile').trigger('click');  
+		}
+		// 选择文件的事件
+		$('#myfile').on('change', function(event) {
+			file = event.target.files[0];
+			var fileReader = new FileReader();
+			fileReader.readAsDataURL(file); //将文件读取后转换为DataURL形式
+			//
+			fileReader.onload = function(e) {
+				// console.log(e.target.result);
+				$('img').attr('src', e.target.result);
+			};
+		});
+		function upload() {
+			if (file == null) {
+				alert('请先选择需要上传的文件');
+				return;
+			}
+			var formData = new FormData();
+			formData.append('myfile', file);
+
+			$.ajax({
+				type: 'POST',
+				url: 'http://www.bestqingshan.top/demo/ajaxFileUpload.php',
+				data: formData,
+				dataType: 'json',
+				processData: false, //它的作用是配合默认的contentType（application/x-www-form-urlencoded）把data数据转换成查询字符串的格式，因为现在要上传文件，文件的编码格式和application/x-www-form-urlencoded不一样，所以不希望转码，设置为false即可
+				contentType: false, //设置为false的意义是忽略掉默认的内容类型（application/x-www-form-urlencoded）
+				success: function(response) {
+					console.log(response);
+				},
+			});
+		}
+	</script>
+</html>

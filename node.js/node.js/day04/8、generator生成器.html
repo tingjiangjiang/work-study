@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// Generator //生成器
+		/*
+            Generator生成器是一个函数
+            这个函数内部可以返回多个数据值
+            调用generator函数默认返回一个遍历器，通过遍历器的next调用或for...of调用把Generator内部的多个状态逐个返回
+            Generator函数和普通函数的区别是：在function关键字和函数名之间有一个*号
+
+            Generator函数内部的yield表达式或return语句的返回值为iterator迭代器的value值
+        */
+		
+		function* gen() {
+			yield 'hello';
+			yield '世界';
+			// return '你好';
+			yield 'world';
+			return 'ending'; //return 调用后，后面的yield表达式无法再继续执行，也就意味着遍历器终止了{done:true},所以如果需要return返回，一般return放到代码的最后面
+		}
+		var it = gen();
+		console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());
+		console.log(it.next());
+	</script>
+</html>

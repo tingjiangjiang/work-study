@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		function timer(msg) {
+			var p = new Promise((resolve, reject) => {
+				setTimeout(() => {
+					resolve(msg);
+				}, 1000);
+			});
+			return p;
+		}
+		async function async_timer() {
+			let t1 = await timer(1);
+			console.log(t1);
+			let t2 = await timer(2);
+			console.log(t2);
+			let t3 = await timer(3);
+			console.log(t3);
+		}
+		async_timer();
+	</script>
+</html>

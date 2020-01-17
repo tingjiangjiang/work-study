@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+            ES6的知识总结：
+            1、let和const
+                let和var的区别：var是函数作用域；let是块级作用域，不存在变量声明提升，暂时性死区(TDZ)
+                const:声明常量的，必须在声明的时候赋值;不允许修改（对象中的属性内容是可以修改的）
+                const x;
+                x = 10;
+            2、变量的解构赋值
+                需要注意什么是模式？赋值运算符左边是模式（函数形参出现的[]或{}也是模式）
+                掌握：对象的解构赋值和函数形参中的解构赋值
+                function f({x=0,y=0}={}){}
+            3、扩展
+                字符串扩展：掌握模板字符串,标签模板（实际是函数的实参）
+                函数的扩展：剩余参数运算符,箭头函数,函数形参的默认值
+                function f(x,x,y)
+                funciton f(x,x,y=2)//报错，TDZ
+
+                扩展运算符：可以用于数组和对象，扩展运算符内置了iterator接口
+
+                对象的扩展：属性名简写和属性名表达式
+            4、symbol
+                JS中的第7种数据类型，用来生成独一无二的值
+                Obj={};
+                Obj[Symbol()]
+            5、set和map
+                set对比array：set不允许重复内容，可以用于过滤数组重复项
+                let s = new Set()//set的初始化参数需要具备iterator接口
+                map对比object:map具备iterator接口，map的key值允许为Object
+            
+                set和map都具备iterator接口，遍历可以使用forEach或for...of
+            6、promise
+                解决异步回调地狱问题，为什么要回调？因为需要异步传递数据。
+            7、async...await
+                它是基于promise的generator语法糖；它的操作特性更像是同步操作，可以用来优化promise调用
+            8、iterator
+                迭代器（遍历器）,三个作用：给数据结构(Array,Object,Set,Map,或自定义)添加统一的遍历接口，按照指定次序遍历数据结构，提供给for...of消费（for...of是iterator迭代器的语法糖）
+            9、generator
+                生成器,内部是一个状态机，可以返回多个状态
+            10、class
+                为什么使用类？什么是类？类和对象的关系（实例化），成员和静态
+                继承使用extends关键字(记住ES5的6中继承方式)
+                super的使用：1、super方法；2、super对象
+        */
+	</script>
+</html>

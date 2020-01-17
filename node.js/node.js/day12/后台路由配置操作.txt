@@ -1,0 +1,28 @@
+﻿1、将admin文件夹粘贴到项目的views目录下
+2、将资源文件粘贴到public目录下（如果有重名则修改名称）
+
+3、在app.js中设置：app.set('views', [path.join(__dirname, 'views/index'), path.join(__dirname, 'views/admin')]);给前台和后台页面都设置对应的目录;(注意：index和admin文件夹里面的文件名称不要重名)
+
+4、配置路由：
+	1）在routes>admin文件夹下新建对应的路由文件，如：adminIndex.js、adminLogin.js;
+	2）在路由文件中编写代码：
+	var express = require('express');
+	var router = express.Router();
+
+	/* GET home page. */
+	router.get('/', function(req, res, next) {
+		res.render('admin_index');
+	});
+
+	module.exports = router;
+
+	3）在app.js中引入后台路由，给后台路由配置路径,如下：
+	var adminItemRouter = require('./routes/admin/adminItem'); //后台项目
+	...
+	...
+	...
+	app.use('/admin', adminIndexRouter);
+
+
+5、修改admin下的html文件的动态数据，把模板里面的动态数据部分删掉（留下include）;注意：<%-include('admin_nav.html',{user:'root'})%> 里面的user
+

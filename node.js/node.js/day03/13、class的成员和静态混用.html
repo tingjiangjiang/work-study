@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			// 类的权限管理
+			/*
+                公有：public 类内和类外都可以使用
+                保护：protect 类内和子类中可以使用，类外不能使用
+                私有：private 只能在类内使用，子类中和类外不可以使用
+            */
+			class Tigger {
+				static title = '老虎';
+				constructor() {
+					this.title = '东北虎';
+				}
+				sayHi() {
+					console.log(this.title);
+					// Tigger.title
+				}
+				static sayHello() {
+					console.log(this.title);
+					// let tigger = new Tigger();
+					// tigger.sayHi();
+				}
+			}
+			// Tigger.title = '老虎';
+
+			Tigger.sayHello();
+		</script>
+	</body>
+</html>

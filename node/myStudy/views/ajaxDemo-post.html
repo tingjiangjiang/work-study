@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajaxDemo-古诗默写</title>
+	<style type="text/css">
+		h2,h3{
+			text-align:center;
+		}
+		#btnGroup{
+			text-align: center;
+		}
+		#showAnswer{
+			text-align:center;
+			border:1px #000;
+		}
+	</style>
+</head>
+<body>
+	<h2>忘记了是什么标题</h2>
+	<h3>
+		<input type="text" id="answer" name="answer">
+	</h3>
+	<h3>奔流到海不复回</h3>
+	<h3>君不见高堂明镜悲白发</h3>
+	<h3>朝如青丝暮成雪</h3>
+	
+	<div id="btnGroup">
+		<button onclick="putAnswer()">提交答案/button>
+		<button onclick="searchAnswer()">查询答案</button>
+	</div>
+	<script type="text/javascript">
+		
+		//创建xmlhttprequest对象
+		var xmlhttp =  new XMLHttpRequest();
+		function putAnswer(){
+			var answer = document.getElementById('answer');
+			xmlhttp.onreadystatechange= function(){
+				//当通信成功时
+				if(xmlhttp.readState==4&&xmlhttp.status===200){
+					//返回响应文本数据
+					var result = xmlhttp.responseText;
+					alert('你的答案是：'+result);
+				}
+				xmlhttp.open('POST','http://localhost:3000,checkAnswer',true);
+				xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				xmlhttp.send('answer='+answer);
+			}
+		}
+		function searchAnswer(){
+			xmlhttp.onreadystatechange= function(){
+				//当通信成功时
+				if(xmlhttp.readState==4&&xmlhttp.status===200){
+					//返回响应文本数据
+					var result = xmlhttp.responseText;
+					var obj = JSON.parse(result);
+					document.getElementById('showAnswer').innerHTML = obj.answer
+				}
+				xmlhttp.open('GET','http://localhost:3000,lookAnswer',true);
+				xmlhttp.send();
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// render内部的执行是线性的，顺序执行，这和async...await 非常相似，因为async...await是基于promise的generator语法糖
+
+		// 渲染数据
+		function* render(callback) {
+			// result的结果来自request方法中的 it.next(data); data
+			// return yield request();
+			var result = yield request();
+			callback(result);
+			// console.log(result);
+			// return result;//{value:result,done:true}
+		}
+		// 请求数据
+		function request() {
+			$.get(
+				'http://www.bestqingshan.top/movie/citys.php',
+				function(data) {
+					// next方法带参数的意义：yield表达式默认是不会返回数据的，通过调用next()方法传递参数的形式将数据传递给当前yield表达式的赋值
+					let rst = it.next(data);
+					console.log(rst);
+				},
+				'json'
+			);
+		}
+
+		var it = render(function(rst) {
+			console.log(rst);
+		});
+		it.next();
+	</script>
+</html>

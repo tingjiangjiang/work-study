@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="short icon" href="images/favicon.ico" charset="UTF-8">
+</head>
+
+<body>
+    <div id="header1" class="wrap2">
+        <h1 title="暴风影音">暴风影音</h1>
+    </div>
+    <div id="mainpart">
+        <div class="wrap2 main">
+            <div class="login-box">
+                <h2>账号登录</h2>
+                <div class="prompt"></div>
+                <div class="content">
+                    <!-- 登录表单 -->
+                    <form>
+                        <div id="zwf">
+                            <input type="text" name="username" class="item i1">
+                            <span class="zwf z1">输入手机/邮箱/用户名</span>
+                            <input type="password" name="password" class="item i2">
+                            <span class="zwf z2">输入密码</span>
+                        </div>
+                        <div class="count clearfix">
+                            <p class="part-left">
+                                <i></i>
+                                <span>记住我</span>
+                            </p>
+                            <p class="part-right">
+                                <a href="/register">立即注册</a>
+                                <span>|</span>
+                                <a href="#">找回密码</a>
+                            </p>
+                        </div>
+                        <p class="login-btn" onclick="submitLogin()">登录</p>
+                        <div class="someway clearfix">
+                            <p class="part-left">
+                                <i></i>
+                                <span>
+                                    <a href="#">遇到问题</a>
+                                </span>
+                            </p>
+                            <p class="part-right">
+                                <a href="#">手机验证码登录&gt;</a>
+                            </p>
+                        </div>
+                </div>
+                </form>
+
+                <div class=""></div>
+
+                <div class="another">
+                    <div class="txt">
+                        <p class="line-left"></p>
+                        <span>其他登录方式</span>
+                        <p class="line-right"></p>
+                    </div>
+                    <ul class="clearfix">
+                        <li class="item1">
+                            <a href="#"></a>
+                        </li>
+                        <li class="item2">
+                            <a href="#"></a>
+                        </li>
+                        <li class="item3">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="i5 num-icon"></div>
+                <div class="i5 pass-icon"></div>
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="content wrap">
+            <p>客服QQ:800111739电话:4000987846(周一至周日9:30 - 18:30)</p>
+            <p>暴风集团股份有限公司</p>
+
+        </div>
+    </div>
+
+
+
+    <script src="js/tools.js"></script>
+    <script src="js/zwf.js"></script>
+    <script src="jquery-3.0.0/jquery-1.12.4.js"></script>
+    <script>
+        function submitLogin(){
+            var param = $('form').serialize();
+            $.post("/login", param,
+                function (data) {
+                    console.log(data);
+                    if(data.error_code == 0){
+                        window.location.href = '/';
+                    }
+                    else{
+                        alert(data.msg);
+                    }
+                },
+            );
+        }
+    </script>
+</body>
+
+</html>

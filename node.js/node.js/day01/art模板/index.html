@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	<!-- art-template -->
+	<script src="template-web.js"></script>
+	<style>
+		.red {
+			color: red;
+		}
+
+		img {
+			width: 50px;
+			height: 50px;
+			margin-left: 30px;
+		}
+
+		.head {
+			height: 50px;
+			background-color: green;
+			font-size: 30px;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="app">
+		<!-- 模板 -->
+	</div>
+</body>
+<!-- 模板内部的数据渲染有两种形式：输出的指令和不输出的指令 -->
+<script id="tmp" type="text/html">
+		            <h1 id="{{id}}">{{title}}</h1>
+					<img src="{{img}}" alt="">
+		<ul>
+			<!-- 标准语法 -->
+		          {{each list val index}}
+		              {{if index!=0}}
+		              <li>{{val}}</li>
+		              {{/if}}
+				  {{/each}}
+				 
+				  <!-- 原始语法 -->
+		              <!-- <%  %> 叫做定界符 -->
+		          <!-- <% for(var i=0;i<list.length;i++) {var item = list[i];%>
+		                <% if(i !=0 ) { %>
+		                    <li class="red"><%=item%></li>
+		                <% } %>
+		          <% } %> -->
+		</ul>
+		
+		{{each list val index}}
+		{{if index%2===0}}
+		<img src="{{img}}" alt="">{{index}}
+		{{/if}}
+		{{/each}}
+	</script>
+
+<script>
+	/*
+			  1、定义模板
+			  2、使用模板（有数据和没数据）
+		  */
+	var data = ['周一', '周二', '周三', '周四', '周五', '周六'];
+	//    template包含两个参数：第一个参数表示模板的id，第二个参数表示当前模板的数据
+	var html = template('tmp', {
+		list: data,
+		title: '星期',
+		id: 'gugu',
+		img: 'http://b-ssl.duitang.com/uploads/item/201810/18/20181018162951_kgwzm.thumb.700_0.jpeg'
+	});
+	$('.app').append(html);
+
+</script>
+
+</html>

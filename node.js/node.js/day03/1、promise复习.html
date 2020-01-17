@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 为什么要用promise？为了解决callback的回调地狱问题；
+		// 为什么要用callback？为了解决异步数据传递
+
+		// 什么情况会异步？定时器、ajax
+		// 以前使用ajax是每个页面文件都要有自己的请求，并没有对请求进行封装。现代前端的思想是模块化和组件化开发，封装是必须得。封装后就面临着ajax封装的文件是一个功能相对独立的文件（只负责数据的请求工作，不负责数据渲染）;相当于分了两个层次：1、数据层（M）表现形式为js ajax；2、渲染层 （V）表现形式为html和css代码；3、逻辑层（C）表现形式为js代码
+		// 数据从M层到C层的传递方式就是通过callback或promise来做到的
+
+		function Http() {
+			var p = new Promise((resolve, reject) => {
+				// 异步操作
+				// $.ajax({
+				// 	type: 'method',
+				// 	url: 'url',
+				// 	data: 'data',
+				// 	dataType: 'dataType',
+				// 	success: function(response) {},
+				// 	error: function(err) {},
+				// });
+			});
+			return p;
+		}
+		Http()
+			.then(rst => {})
+			.then(rst => {})
+			.catch(err => {});
+	</script>
+</html>

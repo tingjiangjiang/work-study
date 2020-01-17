@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// async...await用来修饰一个方法，把该方法变成一个异步方法
+		// await不能脱离async独立使用，await一般要出现在async修饰的函数内
+		// async 函数内部的return返回值是作为promise对象的resolve参数存在的
+		// async 要放到function关键字前面修饰,比如：async function f(){}
+		// async function f() {
+		// 	// 内部默认返回promise对象
+		// 	return 'hello';
+		// }
+		// f().then(res => {
+		// 	console.log(res);
+		// });
+
+		//   async   var  title = "标题";//不能修饰常规变量
+
+		function cinemas() {
+			var p = new Promise((resolve, reject) => {
+				$.ajax({
+					type: 'GET',
+					url: 'http://www.bestqingshan.top/movie/cinemas.php',
+					dataType: 'json',
+					success: function(response) {
+						resolve(response);
+					},
+					error: function(err) {
+						reject(err);
+					},
+				});
+			});
+			return p;
+		}
+		async function async_cinemas(callback) {
+			// await等待的是resolve的返回结果
+			// return await cinemas();
+			var rst = await cinemas(); //await会让当前执行暂停，直到状态变成fulfilled或rejected;await等待的异步操作一般是promise
+			callback(rst);
+		}
+		// var rst = async_cinemas(); //rst是一个promise对象，并不是直接的结果
+
+		// async_cinemas().then(rst => {
+		// 	console.log(rst);
+		// });
+		cinemas().then(res=>{
+			console.log('你好世界');
+			console.log(res);
+		});
+		async_cinemas(rst => {
+			console.log(rst);
+		});
+	</script>
+</html>

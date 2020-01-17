@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+		          主要继承方式如下：
+		          1、原型链继承
+		          2、构造函数继承
+		          3、实例继承
+		          4、拷贝继承
+		          5、组合继承（原型链继承+构造函数继承）
+		          6、寄生组合式继承
+		      */
+		// 组合和继承
+		// 组合是一个has-a的概念,意思是当前类中包含其他类的对象成员
+		// 继承是一个is-a概念,意思是子类可以替代父类做任何事情,这样的关系符合一个原则——里氏替换。也有一些继承的关系不符合这样的概念，比如企鹅是鸟，鸵鸟也是鸟，但是都不会飞。从现实出发的话，继承会变得强大；从程序角度去看这个问题，继承从父类获得了父类的所有属性和方法，然后子类又定义了自己的一部分属性和方法，那么这样叠加后，子类的功能就比父类强大了一些。
+
+		class Animal {
+			static type;
+			constructor(newType, newAge) {
+				// this.name = '动物';
+				// this.age = 2;
+				this.name = newType;
+				this.age = newAge;
+			}
+			sayHi() {
+				console.log('大叫一声');
+			}
+			static eat() {
+				console.log('吃吃吃吃');
+			}
+		}
+		class Tigger extends Animal {
+			// constructor可以省略不写，系统会自动增加默认情况,默认情况如下：
+			/*
+		              constructor() {
+		                  super();
+		              }
+		          */
+			/*
+		              super的意义：
+		              1、super方法；super方法只能在constructor里面使用，类的其他地方都不能用，否则报错。
+		              2、super对象；super对象的使用场景一般是用于子类覆盖父类的属性或方法后，仍然想使用父类中的属性或方法。
+
+		              super 翻译 超级
+		              父类    子类
+		              基类    子类
+		              基类    派生类
+		              超类    子类（派生类）
+		          */
+			constructor(newType, newAge, newTitle) {
+				// 通过在子类的constructor方法中调用super方法，来使用父类的constructor，以便来完成数据初始化工作
+				super(newType, newAge);
+				// 子类的属性一定要放到super方法之后，否则报错。
+				this.title = newTitle;
+			}
+			// 子类方法覆盖掉父类方法的写法叫做：override(覆盖);覆盖之后父类的方法就无法被子类再继续调用了，这时候可以使用super对象来调用。
+			// 重写(overwrite)、重载(overload)和覆盖(override)
+			sayHi() {
+				super.sayHi();
+				console.log('嗷嗷嗷');
+			}
+			sayHello() {}
+		}
+
+		var tigger = new Tigger('老虎', 2, '东北虎');
+
+		console.log(tigger.name, tigger.age, tigger.title);
+		tigger.sayHi();
+		Tigger.eat();
+	</script>
+</html>

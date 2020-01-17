@@ -1,0 +1,143 @@
+#header{
+    background:url(../images/vip-bgs.png) repeat-x;
+    border-bottom: 1px solid #c7c4c5;
+    height: 64px;
+    line-height: 64px;
+    z-index: 999;
+}
+#header h1{
+    float: left;
+}
+#header h1 a{
+    display: block;
+    width: 191px;
+    height: 29px;
+    background: url(../images/vip-logo.png) 0 -144px no-repeat;
+    font-size: 0;
+    margin: 17px 0 17px 18px;
+    
+}
+#header ul{
+    float: right;
+}
+#header ul li{
+    float: left;
+    margin: 0 15px;
+}
+#header ul li a{
+    font-size: 12px;
+    color: #686868;
+}
+#header ul li a:hover{
+    color:  #0b68c8;
+    font-weight: bold;
+}
+#nav{
+    height: 40px;
+    background: url(../images/vip-bgs.png) 0 -74px repeat;
+   }
+   #nav ul{
+       padding-left: 45px;
+   }
+   #nav ul li{
+       float: left;
+   }
+   #nav ul li.active{
+       /* width: 115px; */
+       text-align: center;
+       background-color: #0b68c8;
+   }
+   #nav ul li a{
+        color: #fff;
+        font-size: 14px;
+        widows: 80px;
+        padding:0 30px;
+        line-height: 40px;
+   }
+
+   #someway .line{
+    width: 100%;
+    height: 1px;
+}
+#someway .line1{
+    background-color:#e6e6e6; 
+}
+#someway .line2{
+    background-color:#fff; 
+}
+#someway ul{
+    padding: 55px 0 40px 0;
+}
+#someway ul li{
+    float: left;
+    width: 202px;
+    height: 100px;
+    border-left: 1px solid #dedede;
+    padding-left: 80px;
+}
+#someway ul li.first{
+    border-left: 0;
+    padding-left: 48px;
+}
+#someway ul li div{
+    float: left;
+}
+#someway ul li .bg{
+    width: 51px;
+    height: 100px;
+    background: url(../images/vip-powers.png) no-repeat;
+}
+#someway ul li .bg.bg1{
+    background-position: 0 -111px;
+}
+#someway ul li .bg.bg2{
+    background-position: -51px -111px;
+}
+#someway ul li .bg.bg3{
+    background-position: -102px -111px;
+}
+#someway ul li .bg.bg4{
+    background-position: -153px -111px;
+}
+#someway ul li .txt{
+    padding-left: 10px;
+    
+}
+#someway ul li .txt a{
+    color: #000;
+}
+#someway ul li .txt a:hover{
+    color: #0b68c8;
+}
+#someway ul li .txt h3{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+#someway ul li .txt p{
+    height: 19px;
+    line-height: 19px;
+} 
+
+
+
+
+#footer .content{
+    text-align: center;
+    padding: 54px 0;
+}
+#footer .content p {
+    height: 26px;
+    line-height: 26px;
+    color:#999999;
+    
+}
+#footer .content p a{
+    color:#999999;
+}
+#footer .content p a:hover{
+    text-decoration: underline;
+}

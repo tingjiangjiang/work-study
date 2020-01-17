@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 发动机类
+		class Engine {
+			constructor(hp, p) {
+				this.horsepower = hp; //马力
+				this.power = p; //功率
+			}
+			start() {
+				console.log('启动');
+				console.log('马力：' + this.horsepower + '功率:' + this.power);
+			}
+			stop() {
+				console.log('停止');
+			}
+		}
+		// 汽车类
+		class Car {
+			constructor(hp, p) {
+				this.engine = new Engine(hp, p);
+			}
+			run() {
+				this.engine.start();
+				console.log('跑起来了');
+			}
+		}
+		// 巴士（公交车）
+		class Bus extends Car {
+			constructor(hp, p, seat) {
+				super(hp, p);
+				this.seat = seat;
+			}
+		}
+		let hp = 200; //马力
+		let p = 500; //功率
+		let seat = 40; //座位
+		let bus = new Bus(hp, p, seat);
+		bus.run();
+		// console.log(bus.engine.horsepower);
+	</script>
+</html>

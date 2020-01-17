@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<!-- <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/register1.css">
+    <script src="./js/bf.js"></script>
+    <script src="./js/register.js"></script> -->
+	</head>
+
+	<body>
+		<!-- 头部的logo -->
+		<div class="bf-header w">
+			<div class="header-logo"></div>
+		</div>
+		<!-- 头部的logo -->
+		<!-- 中间类容部分 -->
+		<div class="bf-container">
+			<div class="container-w w clearFix">
+				<img src="../images/register_05.jpg" alt="" class="f_l" />
+
+				<!-- 注册框 -->
+				<div class="container-zhuce f_l" id="zhuce_box">
+					<img src="../images/zhuce-logo_16.jpg" alt="" />
+					<!-- 验证提示 -->
+					<i class="tips1"></i>
+					<i class="tips2"></i>
+					<i class="tips3"></i>
+					<i class="tips4"></i>
+					<span class="zhuce-s1"></span>
+
+					<!-- 表单提交开始 -->
+
+					<form action="./login.html" method="GET">
+						<input type="text" placeholder="输入手机号" class="zhuce-number" />
+						<span class="zhuce-s2"></span>
+						<span class="zhuce-pwd" id="zhuce-pwd"></span>
+						<input type="text" placeholder="输入密码" class="zhuce-number" />
+						<span class="zhuce-s3"></span>
+
+						<div class="clearFix code-box">
+							<input type="text" placeholder="输入右侧验证码" class="zhuce-Code f_l" />
+							<!-- 验证码 -->
+							<!-- <div class="zhuce-code f_l" id="code_box"></div> -->
+							<img
+								id="code_box"
+								class="zhuce-code f_l"
+								src="http://localhost:3000/register/captcha"
+								alt=""
+							/>
+
+							<a class="f_l" id="Refresh"></a>
+						</div>
+
+						<span class="zhuce-s4"></span>
+
+						<div class="clearFix">
+							<input type="text" placeholder="输入短信验证码" class="zhuce-Code f_l" />
+							<!-- 获取短信 -->
+							<div class="zhuce-getnote f_l"></div>
+						</div>
+
+						<!-- 协议 -->
+						<div class="zhuce-Agre clearFix">
+							<div class="icon-02"></div>
+							<strong class="Agre">我同意</strong>
+							<div class="text">《暴风影音注册协议》</div>
+							<a href="./login.html" class="f_r login">立即登录></a>
+						</div>
+						<!-- 提交 -->
+
+						<a href="#" class="zhuce" id="submit">注册</a>
+					</form>
+					<!-- 表单提交结束 -->
+
+					<div class="clearFix">
+						<div class="icon_01 f_l"></div>
+						<strong class="text1">遇到问题</strong>
+					</div>
+
+					<p class="text2">其他方式登录</p>
+
+					<div class="icon-qq"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 中间类容部分 -->
+
+		<div class="footer">
+			<p>客服QQ: 800111739 电话: 4000987846（周一至周末9:30-21:30）</p>
+			<p>暴风集团股份有限公司</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	<script src="./template-web.js"></script>
+	<script src="./pageMe.js"></script>
+	<style>
+		body {
+			padding-left: 300px;
+		}
+
+		/* 外面盒子样式---自己定义 */
+		.page_div {
+			margin: 20px 10px 20px 0;
+			color: #666;
+		}
+
+		/* 页数按钮样式 */
+		.page_div button {
+			display: inline-block;
+			min-width: 30px;
+			height: 28px;
+			cursor: pointer;
+			color: #666;
+			font-size: 13px;
+			line-height: 28px;
+			background-color: #f9f9f9;
+			border: 1px solid #dce0e0;
+			text-align: center;
+			margin: 0 4px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+
+		#firstPage,
+		#lastPage,
+		#nextPage,
+		#prePage {
+			width: 50px;
+			color: #0073a9;
+			border: 1px solid #0073a9;
+		}
+
+		#nextPage,
+		#prePage {
+			width: 70px;
+		}
+
+		.page_div .current {
+			background-color: #0073a9;
+			border-color: #0073a9;
+			color: #fff;
+		}
+
+		/* 页面数量 */
+		.totalPages {
+			margin: 0 10px;
+		}
+
+		.totalPages span,
+		.totalSize span {
+			color: #0073a9;
+			margin: 0 5px;
+		}
+
+		/*button禁用*/
+		.page_div button:disabled {
+			opacity: 0.5;
+			cursor: no-drop;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<div id="container"></div><!-- 内容 -->
+	
+	<div id="page" class="page_div"></div><!-- 分页器 -->
+</body>
+
+<script id="kemu" type="text/html">
+  <!-- 循环渲染题目列表 -->
+	{{each list item index}}
+<div>
+	<!-- 标题 -->
+	<h3>{{item.title}}</h3>
+	<div>
+		<div>
+			<label for="">A、</label>
+			<input type="checkbox">
+			<span>{{item.a}}</span>
+		</div>
+		<div>
+			<label for="">B、</label>
+			<input type="checkbox">
+			<span>{{item.b}}</span>
+		</div>
+		<!-- 判断题没有c和d选项，需要判断一下，动态渲染 -->
+		{{if item.c != ''}}
+		<div>
+			<label for="">C、</label>
+			<input type="checkbox">
+			<span>{{item.c}}</span>
+		</div>
+		{{/if}}
+		{{if item.d != ''}}
+		<div>
+			<label for="">D、</label>
+			<input type="checkbox">
+			<span>{{item.d}}</span>
+		</div>
+		{{/if}}
+		{{if item.file != ''}}
+		<div>
+			<img src="{{item.file}}" alt="">
+		</div>
+		{{/if}}
+	</div>
+	{{/each}}
+</div>
+
+</script>
+
+<script>
+	// jsonp，所谓的jsonp是需要后台服务器支持的
+	// 使用代理可以跨域
+	// 跨域是什么？协议、域名、端口任意一个不同就算跨域
+	// 跨域发生在ajax请求过程中，form表单不存在跨域
+	// 代理：A --> B
+
+	var curPage = 1; //默认请求第一页数据，后面根据分页器的回调方法，动态修改curPage
+
+	k1(curPage);// 第一次调用数据初始化，默认请求第一页
+
+	function paging(totalNum, totalList) {
+		// pageMe.js 使用方法
+		$('#page').paging({
+			pageNum: curPage, // 当前页面
+			totalNum: totalNum, // 总页码
+			totalList: totalList, // 记录总数量
+			callback: function (num) {
+				//回调函数
+				// console.log(num);
+				curPage = num;
+				// 点击选择页码的时候请求当前页的数据
+				k1(curPage);
+			},
+		});
+	}
+	function k1(page) {
+		$.ajax({
+			// type请求方式是目标url决定的，目标url要求是什么就写什么
+			type: 'GET',
+			// 代理地址
+			url: 'http://www.bestqingshan.top/demo/Juhe.php',
+			data: {
+				// 参数url和param是必须的,不可修改,这是Juhe.php这个接口定下来的
+				// 代理的目标url地址
+				url: 'http://apicloud.mob.com/tiku/kemu1/query',
+				// 代理的参数
+				param: {
+					key: '2a6bb26044286',
+					page: page,
+					size: 10,
+				},
+			},
+			// 数据返回类型
+			dataType: 'json',
+			success: function (response) {
+				// json字符串转json对象
+				var data = JSON.parse(response.data);
+				// console.log(data);
+
+				var { total, list } = data.result;// 对象的解构赋值
+
+				var totalList = total; //data.result.total;	// 获取总条数
+
+				var totalNum = Math.ceil(totalList / 10);	// 获取总页码
+
+				paging(totalNum, totalList);// 初始化分页器
+
+				render({ list: list /*data.result.list*/ });	// 渲染数据
+			},
+		});
+	}
+	function render(param) {
+		// template第二个参数务必是对象
+		var neiRong = template('kemu', param);
+		$('#container').html(neiRong);
+	}
+
+</script>
+
+</html>

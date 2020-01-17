@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="short icon" href="images/favicon.ico" charset="UTF-8">
+</head>
+<body>
+    <div id="header1" class="wrap2">
+        <h1 title="暴风影音">暴风影音</h1>
+    </div>
+    <div id="mainpart">
+        <div class="wrap2 main">
+            <div class="login-box">
+                <h2>账号注册</h2>
+                <div class="prompt"></div>
+                <div class="content">
+                    <!-- 注册表单 -->
+                    <form>
+                        <div id="zwf">
+                            <input type="text" name="username" class="item i1">
+                            <span class="zwf z1">输入手机号</span>
+                            <input type="password" name="password" class="item i2">
+                            <span class="zwf z2">输入密码</span>
+                        </div>
+                        <div class="test clearfix">
+                            <div class="testBox">
+                                <input type="text" class="ipmessage" name="yzm">
+                                <span class="zwf z3">输入右侧验证码</span>
+                            </div>
+                            <div class="part-right clearfix">
+                                <!-- <div id="checkCode" class="code"></div> -->
+                                <img class="code" src="/register/captcha" alt="">
+                                <div class="reflash" style="float:right;"></div>
+                            </div>
+                        </div>
+                        <div class="getmessage clearfix">
+                            <div class="part-left">
+                                    <input type="text" class="ipmessage">
+                                    <span class="zwf z4">输入短信验证码</span>
+                            </div>
+                            <div class="part-right">免费获取短信</div>
+                        </div>
+                        <div class="count clearfix">
+                                <p class="part-left agree">
+                                    <i></i>
+                                    <span>我同意</span>
+                                </p>
+                                <a href="#">《暴风影音注册协议》</a>
+                                <p class="part-right">
+                                    <a href="/login">立即登录&gt;</a>
+                                </p>
+                            </div>
+                        <p class="login-btn" onclick="submitReg()">注册</p>
+                        <div class="someway clearfix">
+                            <p class="part-left">
+                                <i></i>
+                                <span>
+                                    <a href="#">遇到问题</a>
+                                </span>
+                            </p>
+                        </div>
+                </div>
+                </form>
+
+                <div class=""></div>
+
+                <div class="another">
+                    <div class="txt">
+                        <p class="line-left"></p>
+                        <span>其他登录方式</span>
+                        <p class="line-right"></p>
+                    </div>
+                    <ul class="clearfix">
+                        <li class="item1">
+                            <a href="#"></a>
+                        </li>
+                        <li class="item2">
+                            <a href="#"></a>
+                        </li>
+                        <li class="item3">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="i5 num-icon"></div>
+                <div class="i5 pass-icon"></div>
+                <div class="i5 safe1-icon"></div>
+                <div class="i5 safe2-icon"></div>
+                <div class="i5 strong-icon"></div>
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="content wrap">
+            <p>客服QQ:800111739电话:4000987846(周一至周日9:30 - 18:30)</p>
+            <p>暴风集团股份有限公司</p>
+
+        </div>
+    </div>
+
+ <script src="js/tools.js"></script>
+ <script src="js/register.js"></script>
+ <script src="jquery-3.0.0/jquery-1.12.4.js"></script>
+ <script src="/swal/swal.js"></script>
+ <script>
+    $('.reflash').on('click',function(){
+        $('.code').attr('src',`/register/captcha?id=${Math.random()*10}`)
+    })
+
+ function submitReg(){
+    
+    // let formData = $('form').serializeArray();
+    // let obj = {};
+    // formData.forEach(val=>{
+    //     obj[val.name] = val.value;
+    // })
+    let data = $('form').serialize();
+    $.post("/register", data,
+        function (result) {
+            console.log(result)
+            let {error_code, reason, data} = result;
+            if(error_code != 0){
+                // alert(reason)
+                swal("提示",reason, "error");
+
+            }
+            else{
+                // 可以存储服务器返回的data信息
+                window.location.href = '/login';
+            }
+        },
+    );
+ }
+ </script>
+</body>
+
+</html>

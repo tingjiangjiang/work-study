@@ -1,0 +1,16 @@
+{
+	"name": "day10",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"mongodb": "^3.3.2",
+		"mongoose": "^5.7.1"
+	}
+}

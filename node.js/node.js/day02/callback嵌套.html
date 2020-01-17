@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 命题：每隔一秒钟打印一个数字
+		// 方式一：
+		// var index = 0;
+		// setInterval(() => {
+		// 	console.log(index++);
+		// }, 1000);
+		// 方式二:
+		// setTimeout(() => {
+		// 	console.log(1);
+		// }, 1000);
+		// setTimeout(() => {
+		// 	console.log(2);
+		// }, 2000);
+		// setTimeout(() => {
+		// 	console.log(3);
+		// }, 3000);
+		// 命题：每隔一秒钟打印一个数字（前后有关联关系）
+		// setTimeout(() => {
+		// 	console.log('1');
+		// 	setTimeout(() => {
+		// 		console.log('2');
+		// 		setTimeout(() => {
+		// 			console.log('3');
+		// 		}, 1000);
+		// 	}, 1000);
+		// }, 1000);
+		// 请求列表
+
+		// 下面的写法就是回调地狱或回调噩梦
+		// $.get(
+		// 	'url',
+		// 	data,
+		// 	function(list, textStatus, jqXHR) {
+		// 		// 请求分页
+		// 		$.get(
+		// 			'url',
+		// 			data,
+		// 			function(pages, textStatus, jqXHR) {
+		// 				console.log(list, pages);
+		// 			},
+		// 			'dataType'
+		// 		);
+		// 	},
+		// 	'dataType'
+		// );
+	</script>
+</html>

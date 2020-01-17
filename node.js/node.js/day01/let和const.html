@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 声明变量:var
+		// let和var声明变量的不同点：
+		/*
+            1、作用域不同(var是函数作用域，let是块作用域)，什么是块？其实就是语句块（语句块是用{}括号包裹的代码）
+            2、var有变量声明提升，let没有（使用let如果出现先使用后声明的情况要报错）
+            3、let声明的变量存在暂时性死区,具体表现是在let声明的作用域内不能重复重名同名变量（不管是var还是let声明都不行）；let声明的变量会绑定该区域，外部的全局变量无法使用；
+
+        */
+		// 一、var和let的作用域问题：
+		// var name = 'zhangsan'; //全局变量
+		// function f() {
+		// 	var name = 'lisi';//局部变量
+		// }
+
+		// if (2 > 1) {
+		// 	var name = 'wangwu';//全局变量
+		// }
+		// for (var i = 0; i < 10; i++) {
+		// 	if (i == 0) var name = 'zhaoliu';//全局变量
+		// }
+		//  let声明的变量：
+		// let name = 'zhangsan';
+		// function f() {
+		// 	let name = 'lisi'; //局部变量
+		// }
+		// if (2 > 1) {
+		// 	let name = 'wangwu';//局部变量
+		// }
+		// console.log(name);
+
+		// if (2 > 1) return;
+		// if (2 > 1) {
+		// }
+		// for (var i = 0; i < 10; i++) console.log(i);
+		// {
+		// 	console.log(a);
+		// 	{
+		// 		var a = 10;
+		// 		let b = 20;
+		// 	}
+		// }
+
+		//二、 var和let的声明提升问题
+		// console.log(a);
+		// var a = 10;
+		// var a; //声明（var的声明提升指的是这段代码）
+		// a = 10; //赋值
+
+		// let a = 10; //报错，let声明的变量不允许提升
+
+		//三、暂时性死区(TDZ)
+		// var x = y;
+		// var y = 2;
+		// function bar(x = y, y = 2) {
+		// 	return [x, y];
+		// }
+		// bar(); // 报错
+
+		// {
+		// 	let name = 'zhangsan';
+		// 	{
+		// 		let name = 'zhangsan';
+		// 	}
+		// }
+		// 四、for循环中的let使用
+
+		// var a = [];
+		// for (var i = 0; i < 10; i++) {
+		// 	a[i] = function() {
+		// 		console.log(i);
+		// 	};
+		// }
+		// a[6]();
+		/*  循环拆解
+		var a = [];
+		var i = 0;
+		a[0] = function() {
+			console.log(i);
+		};
+		i++;
+		a[1] = function() {
+			console.log(i);
+		};
+		i++;
+		a[2] = function() {
+			console.log(i);
+		};
+		i++;
+		a[3] = function() {
+			console.log(i);
+		};
+		i++;
+		a[4] = function() {
+			console.log(i);
+		};
+		i++;
+		a[5] = function() {
+			console.log(i);
+		};
+		i++;
+		a[6] = function() {
+			console.log(i);
+		};
+		i++;
+        a[2]();
+    */
+		// for (let i = 0; i < 10; i++) {
+		// 	console.log(i);
+		// }
+		// console.log(i);
+		// var a = [];
+		// for (let i = 0; i < 10; i++) {
+		// 	a[i] = function() {
+		// 		console.log(i);
+		// 	};
+		// }
+		// a[6](); // 6
+		// let对于for循环的拆解
+		// var a = [];
+		// {
+		// 	let i = 0;
+		// 	{
+		// 		a[0] = function() {
+		// 			console.log(i);
+		// 		};
+		// 	}
+		// }
+		// {
+		// 	let i = 1;
+		// 	{
+		// 		a[1] = function() {
+		// 			console.log(i);
+		// 		};
+		// 	}
+		// }
+		// {
+		// 	let i = 2;
+		// 	{
+		// 		a[2] = function() {
+		// 			console.log(i);
+		// 		};
+		// 	}
+		// }
+		// a[1]();
+		// const 在ES6中是用来声明常量的；什么是常量：不能修改的
+		// 常量有两种：字面常量(1,2,3,hello,a,b)和声明常量(const)
+		// 常量的名字一般是全大写
+		// 类名字：首字母大写
+		// 方法名字：小写
+		// 变量名字：小驼峰或小写加连字符
+
+		// const Fruit = '苹果';
+		// Fruit = '香蕉';
+
+		// console.log(Math.PI);
+		// const APPLE = '苹果';
+		// const MON = '星期一';
+		// const GET_APPLE = '';
+
+		// const student = {
+		// 	name: '张三',
+		// 	age: 18,
+		// };
+		const student = [1, 2, 3];
+		student.name = 'lisi';
+
+		console.log(student);
+	</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=`, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+</head>
+
+<body></body>
+<script>
+	// promise是什么？英文翻译过来就是承诺的意思（许下一个承诺，在不远的将来要兑现）
+	// 许下一个承诺：承诺要做一件事情
+	// 在不远的将来要兑现：有可能是立刻马上，也有可能需要稍加等待；兑现的意思是承诺做的事情做到了。
+
+	// 回调方法（callback），为什么要用回调函数？是为了传递信息(异步调用传递信息)
+	// setTimeout(() => {
+
+	// }, 1000);
+	// $.ajax({
+	//     type: "method",
+	//     url: "url",
+	//     data: "data",
+	//     dataType: "dataType",
+	//     success: function (response) {
+
+	//     }
+	// });
+	// let callback = f;
+
+	// function http(callback) {
+	// 	$.ajax({
+	// 		type: 'GET',
+	// 		url: 'http://www.bestqingshan.top/demo/ajaxWeather.php',
+	// 		dataType: 'json',
+	// 		success: function(response) {
+	// 			// console.log(response);
+	// 			// render(response);
+	// 			callback(response);
+	// 		},
+	// 	});
+	// }
+	// function render() {
+	// 	// 渲染数据
+	// }
+	// http('hello')
+	// http({name:'zhangsan'})
+	// http(function(response) {
+	// 	console.log(response);
+	// });
+	// var f = function(response) {
+	// 	console.log(response);
+	// };
+	// http(f);
+
+	// promise的语法：
+	// promise 包含三个状态：pedding,fulfilled,rejected
+	/*
+	pedding:挂起，异步操作已执行，但是没有得到结果
+	fulfilled:已经得到结果，表示成功（逻辑上的成功）
+	rejected:已经得到结果，表示失败（逻辑上的失败）
+	所谓的逻辑指的是根据自己代码的运行情况，自行判断出到底什么算成功，什么算失败
+	*/
+	// 1、promise的定义
+	// resolve和reject都是方法，都是需要调用的；一旦resolve被调用表示状态从pedding切换到了fulfilled，一旦reject被调用表示状态从pedding切换到了rejected；从pedding到另个状态的切换是不可逆的。
+	var age = 20;
+	var p = new Promise(function (resolve, reject) {
+		// 在这里写自己的异步逻辑
+		// if (age > 18) {
+		// 	resolve('你成年了');
+		// } else {
+		// 	reject('你未成年');
+		// }
+		$.ajax({
+			type: 'GET',
+			url: 'http://www.bestqingshan.top/demo/ajaxWeather.php',
+			dataType: 'json',
+			success: function (response) {
+				resolve(response);
+			},
+			error: function (err) {
+				reject(err);
+			},
+		});
+	});
+	// 2、promise的使用
+	// 用法一：
+	p.then(() => { console.log('你成年了'); }, () => { console.log('你未成年'); });
+	// 用法二：
+	p.then(rst => { console.log(rst); }).catch(err => { console.log(err+'gugu'); });
+</script>
+
+</html>

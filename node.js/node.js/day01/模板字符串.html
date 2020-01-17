@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container"></div>
+	</body>
+	<script>
+		var week = 'monday';
+		id = '1';
+		// 使用模板的作用？动态的渲染页面
+		// var item = '<div><h1>' + week + '</h1></div>';
+		var item = `<div>
+		          <h1 id="${id}">${week}</h1>
+		          <p>段落</p>
+		          </div>
+		      `;
+		document.getElementsByClassName('container')[0].innerHTML = item;
+	</script>
+</html>

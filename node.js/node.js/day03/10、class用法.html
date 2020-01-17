@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+			使用关键字new创建新实例对象经过了以下几步：
+
+			1、创建一个新对象
+			2、将新对象的_proto_指向构造函数的prototype对象
+			3、将构造函数的作用域赋值给新对象 （也就是this指向新对象）
+			4、执行构造函数中的代码（为这个新对象添加属性）
+			5、返回新的对象
+		*/
+		// C语言中使用alloc或malloc，用来申请内存，开辟内存
+		/*
+
+		*/
+		class Animal {
+			// constructor用来初始化属性和方法调用的
+			// constructor方法是new创建实例的时候自动调用的，不需要手动调用（也不要手动调用）
+			constructor(newType, newTitle = '董浩') {
+				// this指向当前调用者，哪个对象来调用属性或方法，当前this就代表哪个对象
+				// 成员变量
+				this.type = newType;
+				this.title = newTitle;
+				this.age;
+			}
+			// 成员方法
+			sayHi() {
+				// var type = '动物世界'; //局部变量
+				console.log(this.type); //成员变量
+			}
+		}
+
+		/*
+			String,Number,Boolean,Array,Object
+			Number:整数和浮点数
+			animal所占用的空间不小于类中定义的属性和方法所占空间之和
+			每个对象都有类中所描述的行为和属性的一个独立副本拷贝
+			animal
+			[type='动物世界'	title='赵忠祥'	sayHi]
+			animal_1
+			[type='狂野非洲'	title='倪萍'	sayHi]
+		*/
+
+		var animal = new Animal('动物世界', '赵忠祥');
+		// console.log(animal.type);
+		// animal.sayHi();
+		var animal_1 = new Animal('狂野非洲');
+		// animal_1.title = '新动物世界';
+
+		console.log(animal.title);
+		console.log(animal_1.title);
+	</script>
+</html>

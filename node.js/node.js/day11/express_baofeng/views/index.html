@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="short icon" href="images/favicon.ico" charset="UTF-8">
+</head>
+
+<body>
+    <div id="header">
+        <div class="wrap clearfix">
+            <h1>
+                <a href="#">暴风VIP会员</a>
+            </h1>
+            <ul class="clearfix">
+                <li>
+                    <a href="/login">登录</a>
+                </li>
+                <li>
+                    <a href="/register">注册</a>
+                </li>
+                <li>
+                    <a href="/play">播放</a>
+                </li>
+                <li>
+                    <a href="#">个人中心</a>
+                </li>
+                <li>
+                    <a href="#">暴风首页</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="nav" class="wrap">
+        <ul>
+            <li class="active">
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="/demand">点播片库</a>
+            </li>
+            <li>
+                <a href="#">激活码兑换</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="banner" class="wrap">
+        <ul class="img-list">
+            <li class="show">
+                <a href="#">
+                    <img src="images/banner_1.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_2.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_3.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_4.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_5.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_6.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_7.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_8.jpg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/banner_9.jpg" alt="">
+                </a>
+            </li>
+        </ul>
+        <a href="###" class="btn btn-prev"></a>
+        <a href="###" class="btn btn-next"></a>
+        <div class="focus-list">
+            <ul>
+                <li class="active">
+                    <img src="images/banner_pic_1.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_2.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_3.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_4.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_5.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_6.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_7.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_8.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+                <li>
+                    <img src="images/banner_pic_9.jpg" alt="">
+                    <i></i>
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="wrap title">VIP特权</h2>
+    <div id="vip" class="wrap">
+        <div class="container">
+            <ul class="clearfix">
+                <li class="item1">
+                    <a href="#">1</a>
+                </li>
+                <li class="item2">
+                    <a href="#">2</a>
+                </li>
+                <li class="item3">
+                    <a href="#">3</a>
+                </li>
+                <li class="item4">
+                    <a href="#">4</a>
+                </li>
+                <li class="item5">
+                    <a href="#">5</a>
+                </li>
+                <li class="item6">
+                    <a href="#">6</a>
+                </li>
+                <li class="item7">
+                    <a href="#">7</a>
+                </li>
+                <li class="item8">
+                    <a href="#">8</a>
+                </li>
+                <li class="item9">
+                    <a href="#">9</a>
+                </li>
+                <li class="item10">
+                    <a href="#">10</a>
+                </li>
+                <li class="item11">
+                    <a href="#">11</a>
+                </li>
+            </ul>
+        </div>
+        <a href="###" class="btn btn-prev"></a>
+        <a href="###" class="btn btn-next"></a>
+    </div>
+    <div id="vip-ad" class="wrap">
+        <a href="#" target="_blank">
+            <img src="images/banner.jpg" alt="">
+        </a>
+    </div>
+    <div id="films" class="wrap">
+        <h2 class="title">强力推荐</h2>
+        <ul class="clearfix">
+            <% for(var i=0;i<data.length;i++){ 
+                var film = data[i];
+            %>
+                <li class="<%= i%5==0 ? 'first' : '' %>">
+                    <a href="<%= film.http%>"><img src="<%= film.url%>"/></a>
+                    <div class="txt">
+                        <div class="left">
+                            <p class="titled">
+                                <a href="<%= film.http%>">
+                                    <%= film.title %>
+                                </a>
+                            </p>
+                            <p class="message">
+                                <%= film.message%>
+                            </p>
+                        </div>
+                        <%
+                            var grades = String(film.grade).split('.');
+                        %>
+                        <div class="score"><span><%= grades[0] %></span>.<i><%= grades[1] %></i></div>
+                    </div>
+                    <div class="film-type"><%= film.txt %></div>
+                    <%
+                        var vip = 'vip-only';
+                        switch (film.type) {
+                            case 1:
+                                vip = 'vip-only';
+                                break;
+                            case 2:
+                                vip = 'vip-free';
+                                break;
+                            case 3:
+                                vip = 'vip-discount';
+                                break;
+                            default:
+                                break;
+                        }
+                    %>
+                    <div class="type <%= vip%>"></div>
+                </li>
+            <% } %>
+        </ul>
+        <h2 class="title">热映大片</h2>
+        <ul class="clearfix">
+                <% for(var i=0;i<data.length;i++){ 
+                    var film = data[i];
+                %>
+                    <li class="<%= i%5==0 ? 'first' : '' %>">
+                        <a href="<%= film.http%>"><img src="<%= film.url%>"/></a>
+                        <div class="txt">
+                            <div class="left">
+                                <p class="titled">
+                                    <a href="<%= film.http%>">
+                                        <%= film.title %>
+                                    </a>
+                                </p>
+                                <p class="message">
+                                    <%= film.message%>
+                                </p>
+                            </div>
+                            <%
+                                var grades = String(film.grade).split('.');
+                            %>
+                            <div class="score"><span><%= grades[0] %></span>.<i><%= grades[1] %></i></div>
+                        </div>
+                        <div class="film-type"><%= film.txt %></div>
+                        <%
+                            var vip = 'vip-only';
+                            switch (film.type) {
+                                case 1:
+                                    vip = 'vip-only';
+                                    break;
+                                case 2:
+                                    vip = 'vip-free';
+                                    break;
+                                case 3:
+                                    vip = 'vip-discount';
+                                    break;
+                                default:
+                                    break;
+                            }
+                        %>
+                        <div class="type <%= vip %>"></div>
+                    </li>
+                <% } %>
+        </ul>
+    </div>
+    <div id="someway" class="wrap">
+        <p class="line line1"></p>
+        <p class="line line2"></p>
+        <ul class="clearfix">
+            <li class="clearfix first">
+                <div class="bg bg1"></div>
+                <div class="txt">
+                    <h3>
+                        <a href="#">新手指南</a>
+                    </h3>
+                    <p>
+                        <a href="#">什么是VIP，如何购买</a>
+                    </p>
+                    <p>
+                        <a href="#">暴豆说明</a>
+                    </p>
+                    <p>
+                        <a href="#">登录与注册</a>
+                    </p>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="bg bg2"></div>
+                <div class="txt">
+                    <h3>
+                        <a href="#">特权问题</a>
+                    </h3>
+                    <p>
+                        <a href="#">VIP特权</a>
+                    </p>
+                    <p>
+                        <a href="#">VIP权限设置</a>
+                    </p>
+                    <p>
+                        <a href="#">如何购买付费点播影片</a>
+                    </p>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="bg bg3"></div>
+                <div class="txt">
+                    <h3>
+                        <a href="#">付款方式</a>
+                    </h3>
+                    <p>
+                        <a href="#">VIP购买支付流程</a>
+                    </p>
+                    <p>
+                        <a href="#">优惠券的支付与使用</a>
+                    </p>
+                    <p>
+                        <a href="#">支付常见问题解答</a>
+                    </p>
+                </div>
+            </li>
+            <li class="clearfix">
+                <div class="bg bg4"></div>
+                <div class="txt">
+                    <h3>
+                        <a href="#">其他问题</a>
+                    </h3>
+                    <p>
+                        <a href="#">常见问题解答</a>
+                    </p>
+                    <p>
+                        <a href="#">VIP会员服务协议</a>
+                    </p>
+                    <p>
+                        <a href="#">暴风论坛</a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <p class="line line2"></p>
+        <p class="line line1"></p>
+    </div>
+    <div id="footer">
+        <div class="content wrap">
+            <p>VIP专属客服QQ:800111739电话:4000987846(周一至周日9:30 - 18:30)</p>
+            <p>暴风集团股份有限公司</p>
+            <p>
+                <a href="#">京ICP证070364号</a>
+                <a href="#">京网文【2017】10770-1255号</a>
+                <a href="#">互联网药品信息服务资格证书(京)-非经营性-2013-0080</a>
+                <a href="#">广播电视节目制作经营许可证：(京)字第01166号</a>
+            </p>
+            <p>
+                <a href="#">京公网安备 11010802020226号</a>
+                <a href="#">京ICP备08011423号</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/tools.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/banner.js"></script>
+    <script src="js/vip.js"></script>
+    <!-- <script src="js/films.js"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,1155 @@
+@charset "UTF-8" ;
+
+/* 基本样式*/
+*  {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.w{
+    width: 960px;
+    margin: 0 auto;
+}
+.indexw{
+    width: 1100px;
+    margin: 0 auto;
+}
+.discussw{
+    width: 1190px;
+    margin: 0 auto;
+}
+body {
+
+    font: 12px/1.5  "Microsoft YaHei" ,"tahoma","arial", "Hiragino Sans GB" ,sans-serif;
+    background-color: #f9f9f9;
+
+
+}
+a {
+    /* 大部分链接的字体颜色 */
+    color: #1a9eff;;
+    text-decoration: none;
+    z-index: 100;
+    display: block;
+
+}
+
+ul li ,ol li {
+    list-style: none;
+}
+input , textarea ,button {
+    border:0;
+    /* 外轮廓蓝色光圈 */
+    outline:none;
+}
+img {
+    /* 消除ie下蓝色边框 */
+    border:0;
+    /* 块  居中 margin:0 auto */
+    display: block;
+}
+.clearFix::after , .clearFix::before {
+    content: '';
+    display: block;
+    line-height: 0;
+    clear:both;
+}
+.f_l {
+    float: left;
+}
+.f_r {
+    float: right;
+}
+.m_l10 {
+    margin-left: 10px;
+}
+em,i,strong,b {
+    font-style: normal;
+}
+@charset "UTF-8";
+a,
+span {
+  color: #989898;
+}
+.header {
+  width: 100%;
+  height: 56px;
+  background-color: #242428;
+}
+.header .header-box {
+  position: relative;
+  height: 56px;
+  vertical-align: middle;
+}
+.header .header-box .icon-logo {
+  margin-top: 15px;
+  float: left;
+  width: 120px;
+  height: 30px;
+  background: url(../images/a7325a0fa42a8a8996694fbd38e31479.png) no-repeat -180px -122px;
+}
+.header .header-box .login-meu {
+  float: left;
+  margin-top: 20px;
+}
+.header .header-box .login-meu li {
+  float: left;
+}
+.header .header-box .login-meu li a {
+  margin-left: 35px;
+}
+.header .header-box .header-icon2 {
+  margin-top: 22px;
+  margin-left: 10px;
+  float: left;
+  width: 18px;
+  height: 18px;
+  background: url(../images/c3b2d24cbc8782db537eaa0fe28904f7.png) no-repeat -384px -562px;
+}
+.header .header-box .search {
+  padding-right: 80px;
+  padding-left: 10px;
+  margin: 14px auto;
+  margin-left: 100px;
+  margin-right: 150px;
+  width: 400px;
+  height: 30px;
+  background-color: #383a42;
+  border-radius: 6px;
+}
+.header .header-box .icon-search {
+  position: absolute;
+  top: 14px;
+  right: 404px;
+  width: 80px;
+  height: 30px;
+  background: url(../images/c3b2d24cbc8782db537eaa0fe28904f7.png) no-repeat -194px -49px;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.header .header-box .header-see {
+  margin-top: 10px;
+  margin-right: 36px;
+  height: 40px;
+}
+.header .header-box .header-see .see-icon1,
+.header .header-box .header-see .see-icon2,
+.header .header-box .header-see .see-icon3,
+.header .header-box .header-see .see-icon4 {
+  display: block;
+  width: 25px;
+  height: 22px;
+  background-color: red;
+  background: url(../images/a7325a0fa42a8a8996694fbd38e31479.png) no-repeat -115px 0px;
+}
+.header .header-box .header-see .see-icon2 {
+  background-position-x: -172px;
+}
+.header .header-box .header-see .see-icon3 {
+  margin-left: 7px;
+  background-position-x: -228px;
+}
+.header .header-box .header-see .see-icon4 {
+  margin-left: 12px;
+  background-position-x: -281px;
+}
+.header .header-box .see-last {
+  margin-right: 0px;
+}
+/* 导航开始 */
+.dis-navbox {
+  width: 100%;
+  height: 756px;
+  background-color: #383a42;
+  /* 播放下点赞部分开始 */
+  /* 播放下点赞部分结束 */
+}
+.dis-navbox .nav-left .tit {
+  color: #fff;
+  font-size: 20px;
+}
+.dis-navbox .nav-left .nav-box li {
+  float: left;
+  margin-right: 12px;
+}
+.dis-navbox .play {
+  height: 635px;
+  background-color: #959595;
+}
+.dis-navbox .play .play-right {
+  float: right;
+  width: 320px;
+  height: 635px;
+}
+.dis-navbox .play .play-right .right-top {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #383a42;
+  background-color: #242428;
+}
+.dis-navbox .play .play-right .right-top .top-selec,
+.dis-navbox .play .play-right .right-top .top-modity {
+  width: 50%;
+  height: 50px;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 50px ;
+  float: left;
+}
+.dis-navbox .play .play-right .right-top .firsttop {
+  border-bottom: 1px solid #1a9eff;
+  color: #1a9eff;
+}
+.dis-navbox .play .play-right .right-inner {
+  padding-left: 10px;
+  width: 100%;
+  height: 585px;
+  background-color: #242428;
+}
+.dis-navbox .play .play-right .right-inner .Anth {
+  width: 290px;
+  height: 585px;
+  overflow: hidden;
+}
+.dis-navbox .play .play-right .right-inner .Anth .Anth-row {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #383a42;
+}
+.dis-navbox .play .play-right .right-inner .Anth .Anth-row .icon-play {
+  margin-top: 15px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/a7325a0fa42a8a8996694fbd38e31479.png) no-repeat -284px -80px;
+}
+.dis-navbox .play .play-right .right-inner .outer {
+  position: relative;
+  width: 16px;
+  height: 585px;
+  background-color: #2b2c31;
+}
+.dis-navbox .play .play-right .right-inner .outer .inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 52px;
+  background-color: #3d4047;
+  border-radius: 8px;
+}
+.dis-navbox .play-spot {
+  height: 45px;
+  background-color: #242428;
+}
+.dis-navbox .play-spot .spot-riht a {
+  width: 320px;
+  height: 45px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  line-height: 45px;
+  background-color: #398ee6;
+}
+/* 导航结束 */
+/* 广告开始 */
+.dis-adv {
+  width: 1000px;
+  height: 170px;
+  padding-top: 30px;
+  text-align: center;
+}
+.dis-adv img {
+  display: inline-block;
+  margin-right: 15px;
+}
+/* 广告结束 */
+/* 产品开始 */
+.dis-product .pro-left {
+  width: 900px;
+  /* 商品展示开始 */
+  /* 商品展示结束 */
+  /* 热门推荐开始 */
+  /* 热门推荐结束 */
+}
+.dis-product .pro-left .pro-ex {
+  width: 100%;
+}
+.dis-product .pro-left .pro-ex li {
+  position: relative;
+  float: left;
+  margin-right: 8px;
+  margin-bottom: 40px;
+}
+.dis-product .pro-left .pro-ex li img {
+  width: 170px;
+  height: 230px;
+}
+.dis-product .pro-left .pro-ex li .fen {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  font-size: 18px;
+  color: #ff6600;
+}
+.dis-product .pro-left .pro-ex li .tit {
+  color: #000;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.dis-product .pro-left .pro-ex li .txt {
+  color: #999;
+  font-size: 12px;
+}
+.dis-product .pro-left .adv-more {
+  width: 800px;
+}
+.dis-product .pro-left .adv-more .adv-tit {
+  padding-left: 10px;
+  display: block;
+  font-size: 22px;
+  border-left: 3px solid #009cff;
+}
+.dis-product .pro-left .more-pic {
+  width: 900px;
+}
+.dis-product .pro-left .more-pic a {
+  margin-bottom: 25px;
+}
+.dis-product .pro-left .more-pic img {
+  width: 167px;
+  height: 220px;
+}
+.dis-product .pro-left .more-pic p {
+  font-size: 14px;
+}
+.dis-product .pro-left .more-pic span {
+  font-size: 10px;
+}
+.dis-product .pro-left .more-pic .fen {
+  font-size: 14px;
+}
+.dis-product .pro-left .recom {
+  width: 900px;
+}
+.dis-product .pro-left .recom .recom-left {
+  width: 800px;
+  /* 强力推荐开始 */
+  /* 强力推荐图片开始 */
+  /* 强力推荐图片结束 */
+}
+.dis-product .pro-left .recom .recom-left .adv-more {
+  width: 800px;
+}
+.dis-product .pro-left .recom .recom-left .adv-more a {
+  float: left;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.dis-product .pro-left .recom .recom-left .more-pic {
+  width: 800px;
+}
+.dis-product .pro-left .recom .recom-left .more-pic .pic1 {
+  position: relative;
+  float: left;
+  margin-right: 20px;
+  margin-top: 20px;
+  width: 180px;
+  height: 135px;
+}
+.dis-product .pro-left .recom .recom-left .more-pic .pic1 img {
+  display: inline-block;
+  width: 180px;
+  height: 135px;
+}
+.dis-product .pro-left .recom .recom-left .more-pic .pic1 span {
+  color: #fff;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+.dis-product .pro-left .recom .recom-right {
+  width: 100px;
+  /* 电影版开始 */
+  /* 电影版结束 */
+  /* 隐藏的电影图片开始 */
+  /* 隐藏的电影图片结束 */
+}
+.dis-product .pro-left .recom .recom-right .adv-more {
+  width: 110px;
+  margin-bottom: 25px;
+}
+.dis-product .pro-left .recom .recom-right .adv-more .adv-tit {
+  font-size: 12px;
+}
+.dis-product .pro-left .recom .recom-right .adv-more a {
+  float: left;
+  margin-left: 2px;
+}
+.dis-product .pro-left .recom .recom-right .movieBox {
+  margin-bottom: 25px;
+}
+.dis-product .pro-left .recom .recom-right .recom-row1 .num {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  margin-top: 2px;
+  margin-right: 3px;
+  color: #fff;
+  text-align: center;
+  background-color: #989898;
+  border-radius: 50%;
+}
+.dis-product .pro-left .recom .recom-right .recom-row1 .fen {
+  color: #fc4464;
+}
+.dis-product .pro-left .recom .recom-right .row-pic1 {
+  position: relative;
+  display: none;
+}
+.dis-product .pro-left .recom .recom-right .row-pic1 img {
+  width: 100px;
+  height: 80px;
+}
+.dis-product .pro-left .recom .recom-right .row-pic1 .pic-bottom {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.dis-product .pro-left .recom .recom-right .row-pic1 .pic-bottom .num1 {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  margin-top: 2px;
+  margin-right: 3px;
+  color: #fff;
+  text-align: center;
+  background-color: #1a9eff;
+  border-radius: 50%;
+}
+.dis-product .pro-left .recom .recom-right .row-pic1 .pic-bottom .movie-name {
+  color: #fff;
+}
+.dis-product .pro-left .recom .recom-right .fist-pic {
+  display: block;
+}
+.dis-product .pro-left .recom .recom-right .first-row1 {
+  display: none;
+}
+.dis-product .pro-right {
+  position: relative;
+  width: 290px;
+  height: 100px;
+  /* 评论输入框开始 */
+  /* 评论输入框结束 */
+  /* 评论框开始 */
+  /* 评论框结束 */
+}
+.dis-product .pro-right .adv-more .adv-tit {
+  padding-left: 10px;
+  font-size: 22px;
+  border-left: 3px solid #009cff;
+}
+.dis-product .pro-right .adv-more .txt-All {
+  margin-top: 10px;
+  margin-left: 4px;
+  font-size: 12px;
+}
+.dis-product .pro-right .adv-more .inp {
+  margin-left: 75px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #7f7f7f;
+}
+.dis-product .pro-right .textInp {
+  padding-top: 10px;
+  padding-left: 5px;
+  width: 100%;
+  height: 120px;
+  color: #c8c8c8;
+  font-size: 12px;
+  border: 1px solid #c8c8c8;
+}
+.dis-product .pro-right .comment {
+  position: absolute;
+  top: 200px;
+  right: 0px;
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+  margin-top: 5px;
+  background-color: #1a9eff;
+  border-radius: 6px;
+}
+.dis-product .pro-right .bind-txt {
+  position: absolute;
+  top: 243px;
+  right: 5px;
+  margin-top: 5px;
+  color: #c8c8c8;
+}
+.dis-product .pro-right .bind-txt a {
+  display: inline-block;
+  text-decoration: underline;
+  color: #1a9eff;
+}
+.dis-product .pro-right .inp-list {
+  margin-top: 40px;
+}
+.dis-product .pro-right .inp-list li {
+  float: left;
+}
+.dis-product .pro-right .inp-list li a {
+  padding: 10px;
+  margin-top: 20px;
+  display: inline-block;
+  color: #000;
+  font-size: 16px;
+}
+.dis-product .pro-right .inp-list .inp-list-first a {
+  color: #1a9eff;
+  border-bottom: 1px solid #1a9eff;
+}
+.dis-product .pro-right .discuss-box {
+  overflow: hidden;
+  padding-left: 10px;
+  width: 100%;
+  height: 828px;
+  border-top: 1px solid #c8c8c8;
+  /* 评论区开始 */
+  /* 评论区结束 */
+}
+.dis-product .pro-right .discuss-box .dis-list {
+  position: relative;
+  padding: 20px 0px;
+  border-bottom: 1px solid #c8c8c8;
+}
+.dis-product .pro-right .discuss-box .dis-list .portrait {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+.dis-product .pro-right .discuss-box .dis-list .dis-name {
+  position: absolute;
+  top: 28px;
+  left: 40px;
+  color: #000;
+  font-size: 12px;
+}
+.dis-product .pro-right .discuss-box .dis-list .dis-time {
+  position: absolute;
+  top: 42px;
+  left: 40px;
+  color: #989898;
+  font-size: 10px;
+}
+.dis-product .pro-right .discuss-box .dis-list .dis-txt {
+  margin-top: 28px;
+  margin-bottom: 40px;
+  color: #5e5e5e;
+  font-size: 12px;
+}
+.dis-product .pro-right .discuss-box .dis-list .icon-dis {
+  position: absolute;
+  right: 50px;
+  bottom: 18px;
+  width: 15px;
+  height: 15px;
+  background: url(../images/a7325a0fa42a8a8996694fbd38e31479.png) no-repeat;
+}
+.dis-product .pro-right .discuss-box .dis-list .dis-num {
+  position: absolute;
+  right: 20px;
+  bottom: 16px;
+  color: #5e5e5e;
+  font-size: 12px;
+}
+/* 产品结束 */
+/* 广告3开始 */
+.dis-adv {
+  width: 1190px;
+}
+/* 广告3结束 */
+.hrbox {
+  height: 1px;
+  background-color: #1a9eff;
+}
+.footer ul {
+  margin-left: 400px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.footer ul li {
+  margin-right: 5px;
+  float: left;
+}/* 强力推荐开始 */
+.adv-more {
+  padding-top: 30px;
+  padding-bottom: 14px;
+  height: 70px;
+}
+.adv-more span {
+  float: left;
+  margin-bottom: 16px;
+  color: #000;
+  font-size: 26px;
+}
+.adv-more a {
+  float: right;
+  color: #000;
+  font-size: 12px;
+}
+.more-pic {
+  margin-bottom: 70px;
+}
+.more-pic .pic1 {
+  float: left;
+  position: relative;
+  margin-right: 16px;
+}
+.more-pic .pic1 img {
+  width: 206px;
+  height: 288px;
+}
+.more-pic .pic1 p {
+  font-size: 14px;
+  color: #000;
+}
+.more-pic .pic1 span {
+  font-size: 12px;
+  color: #9999a4;
+}
+.more-pic .pic1 .fen {
+  position: absolute;
+  bottom: 5px;
+  right: 0px;
+  font-size: 18px;
+  color: #ff6600;
+}
+.more-pic .last {
+  margin-right: 0;
+}
+/* 强力推荐结束 */
+/* vip部分开始 */
+.vipBox {
+  margin-bottom: 30px;
+  height: 200px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #fff;
+}
+.vipBox .vip-all {
+  padding: 56px 0;
+  width: 100%;
+  height: 100%;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #dedede;
+}
+.vipBox .vip-all .vip1 {
+  float: left;
+  padding: 0 30px;
+  width: 270px;
+  height: 100px;
+  border-right: 1px solid #dedede;
+}
+.vipBox .vip-all .vip1 .viplogo1 {
+  width: 54px;
+  height: 52px;
+  background: url(../images/9255f5368a61b05ad4a9a8890cb33ba9.png) no-repeat 2px -111px;
+}
+.vipBox .vip-all .vip1 .viptxt {
+  margin-left: 10px;
+}
+.vipBox .vip-all .vip1 .viptxt a {
+  color: #4b0000;
+}
+.vipBox .vip-all .vip1 .viptxt .txt1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.vipBox .vip-all .vip1 .viptxt .txt {
+  font-size: 12px;
+}
+.vipBox .vip-all .viplase {
+  border-right: 0px solid #dedede;
+}
+/* vip部分结束 */
+.footer {
+  padding-top: 30px;
+  width: 100%;
+  height: 110px;
+  color: #999;
+}
+.footer p {
+  text-align: center;
+  margin-bottom: 10px;
+}/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/*
+http://necolas.github.io/normalize.css/
+*/
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+/* Document
+   ========================================================================== */
+
+html {
+    font-family: sans-serif; /* 1 */
+    line-height: 1.15; /* 2 */
+    -ms-text-size-adjust: 100%; /* 3 */
+    -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+    margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+    display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+    margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+    box-sizing: content-box; /* 1 */
+    height: 0; /* 1 */
+    overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+    background-color: transparent; /* 1 */
+    -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+    outline-width: 0;
+}
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+    border-bottom: none; /* 1 */
+    text-decoration: underline; /* 2 */
+    text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+    font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+    font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+    background-color: #ff0;
+    color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+    font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+    display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+    border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: sans-serif; /* 1 */
+    font-size: 100%; /* 1 */
+    line-height: 1.15; /* 1 */
+    margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+    overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+    text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+    box-sizing: border-box; /* 1 */
+    color: inherit; /* 2 */
+    display: table; /* 1 */
+    max-width: 100%; /* 1 */
+    padding: 0; /* 3 */
+    white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+    display: inline-block; /* 1 */
+    vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+    overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+    display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+    display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+    display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+    display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+    display: none;
+}

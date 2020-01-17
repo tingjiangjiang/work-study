@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 一、属性名简写：
+		/*
+		let obj = {
+			name: 'zhangsan',
+			f: function() {
+				console.log(this.name);
+			},
+		};
+		// 把上面的例子改成属性名简写
+		var name = 'zhangsan';
+		var f = function() {
+			console.log(this.name);
+		};
+		var obj = {
+			name,
+			f,
+		};
+
+		let result = { curPage: 1, total: 1311, list: [{}] };
+		let { curPage: curPage, total, list } = result;
+
+		// 举例：
+		function http({ url, data }) {
+			$.ajax({
+				type: 'GET',
+				url,
+				data,
+				dataType: 'json',
+				success: function(response) {},
+			});
+		}
+		      */
+		// 二、属性名表达式
+		// 什么是表达式：表达式是由常量、变量、运算符或函数调用等组成的运算单元。
+		// 1,a,1+2,(1+2)*3,2&&3,a>b,!a,!f(),2>1?2:1
+		// 不严谨的总结：可以认为赋值运算符右边书写的内容就是表达式
+
+		// 对象对属性的访问是通过.运算符，.运算符后面的内容都是字符串
+
+		// 属性名表达式意义：1、相比较属性名字符串的形式更加灵活多变；2、有些属性无法通过属性名字符串的形式访问，可以使用表达式形式
+		let obj = {
+			name: '张三丰',
+			age: 500,
+			3: '33',
+		};
+		// console.log(obj.name);
+		// console.log(obj['name']); //以字符串的形式访问属性
+	
+		// console.log(obj[(name = 'name')]); //以表达式的形式访问属性
+		// console.log(obj['3']); //obj.3就不可以
+		// console.log(obj[1+2]);
+	</script>
+</html>

@@ -1,0 +1,25 @@
+session是存储在服务器端的技术，cookie是存储在客户端的技术；
+
+session是一种特殊的cookie；
+
+使用session的时候，服务器会给客户端发送一个默认名字叫做：connect.sid的cookie信息，该信息的意思是客户端的sessionID，每一次客户端向服务器发信息都会带着cookie一起发送给服务器，服务器内部判断当前请求的sessionID是否存在，如果存在则获取该id对应的内容进行验证。
+
+session相比cookie而言要安全一些，因为它是存储在服务器的；cookie是明文（也可加密）存储在客户端的（浏览器），而且每次请求都会附带发送（可以使用抓包工具获取该cookie，不安全）；
+
+cookie如果存储内容比较多的话，会给请求造成压力。
+
+session因为是存储在服务器的，所以如果过多的依赖session会造成服务器压力（内存和硬盘的压力）
+
+重要！！！express中cookie的使用：res.cookie(写cookie给客户端)和req.cookie（获取从客户端发送来的cookie）;express中的session使用：req.session
+
+cookieParser('baofeng')中的字符串baofeng是加密的秘钥
+
+// cookie的选项：
+signed：设置为true，表示该cookie需要加密（加密是根据cookieParser里面的秘钥来加密的），也是就说要设置signed必须要先有秘钥
+httpOnly：默认为false,建议设置为true, 客户端将无法通过document.cookie读取到 COOKIE 信息，可防止 XSS 攻击产生
+secure：当 secure 值为 true 时， cookie 在 HTTP 中是无效，在 HTTPS 中才有效
+maxAge：设置过期时间，（单位为毫秒）
+expires：设置过期时间（单位为秒）
+path：设置访问路径，比如设置为/register，那么该cookie就只能在/register路径下访问，其他路径下不可见domain：默认当前主域名和子域名都可见
+
+

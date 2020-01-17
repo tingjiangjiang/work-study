@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+
+<body></body>
+<script>
+	// let obj = {
+	// 	name: '张三',
+	// 	age: 22,
+	// 	address: '北京',
+	// };
+	// 对象模式匹配1：
+
+	// let oop={
+	// 	name: '张三',
+	// 	age: 22,
+	// 	address: '北京',
+	// };
+	// let { age: zs_age, name: nn, work: w = '前端开发' }=oop;
+	// console.log(zs_age,nn,w);
+	// console.log(oop);
+
+	// 对象模式匹配2：
+	// let { age: age } = {
+	// 	name: '张三',
+	// 	age: 22,
+	// 	address: '北京',
+	// };
+	// 对象模式匹配3：
+	// let { age } = {
+	// 	name: '张三',
+	// 	age: 22,
+	// 	address: '北京',
+	// };
+	// let { age } = obj; //用到了ES6中的对象扩展之属性名简写
+	// console.log(age);
+
+		// let { baz = 'ccc', title: title = '周一' } = { foo: 'aaa', bar: 'bbb' };
+		// console.log(baz, title);
+
+		// let { log, sin, cos, PI } = Math;
+		// console.log(PI);
+		// console.log(Math);
+		// let sin = Math.sin;
+
+		// let obj = {
+		// 	p: ['Hello', { y: 'World' }],
+		// };
+
+		// let { p } = obj;
+		// let {
+		// 	p: [x, { y }],
+		// } = obj;
+		// console.log(p, x, y);
+		// 复杂对象的模式区分：
+	/*
+	在下面的对象解构中，第一个loc是简写，简写表示两重含义：1、代表模式；2、表示声明的变量名;也就是说简写的内容肯定是定义了变量的，那么如果找出下面的例子的简写就是有：loc,start,line
+	*/
+		// const node = {
+		// 	loc: {
+		// 		start: {
+		// 			line: 1,
+		// 			column: 5,
+		// 		},
+		// 	},
+		// };
+
+		// let {
+		// 	loc,
+		// 	loc: { start },
+		// 	loc: {
+		// 		start: { line },
+		// 	},
+		// } = node;
+
+		// 函数参数的解构赋值
+		// 传统写法：
+		// function getApple(id, data, page, size, callback) {}
+		// getApple(1, { title: '红富士' }, 1, 10, function() {});
+		// 解构赋值写法：
+		// function getApple({ id, data = {}, page = 1, size = 10, callback } = {}) {}
+		// getApple({
+		// 	id: 1,
+		// 	callback: function() {},
+		// 	data: {},
+		// });
+
+		// getApple({});// let { id, data = {}, page = 1, size = 10, callback } = {}
+		// getApple(); // let { id, data = {}, page = 1, size = 10, callback } = undefined
+</script>
+
+</html>

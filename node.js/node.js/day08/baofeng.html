@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="/jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		//前后端分离方式的数据渲染,这里会遇到跨域问题,可以通过跨域解决
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000/register',
+			data: { username: '123', password: '123', yzm: '123' },
+			dataType: 'json',
+			success: function(response) {
+				console.log(response);
+			},
+		});
+		
+	</script>
+</html>

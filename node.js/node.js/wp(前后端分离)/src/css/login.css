@@ -1,0 +1,206 @@
+/* 头部开始 */
+
+.bf-header {
+  height: 90px;
+  padding-top: 25px;
+}
+
+.bf-header .header-logo {
+  width: 175px;
+  height: 40px;
+  background: url(../images/indexicons.png) no-repeat;
+  background-position-x: 1px;
+  background-position-y: -566px;
+}
+/* 头部结束 */
+/* 内容部分开始 */
+
+.bf-container {
+  padding-top: 55px;
+  width: 100%;
+  height: 545px;
+  background-color: #46a4e9;
+}
+
+.bf-container .container-zhuce {
+  position: relative;
+  padding: 22px 20px;
+  width: 333px;
+  height: 446px;
+  background-color: #ffffff;
+}
+
+.bf-container .container-zhuce img {
+  margin-bottom: 40px;
+}
+
+.bf-container .container-zhuce input {
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #dddddd;
+}
+
+.bf-container .container-zhuce .zhuce-number {
+  width: 100%;
+}
+
+.bf-container .container-zhuce .code-box a {
+  width: 32px;
+  height: 32px;
+  background: url(../images/f5_19.jpg);
+}
+
+.bf-container .container-zhuce .zhuce-code {
+  margin: 0 12px;
+  width: 90px;
+  height: 32px;
+  border: 1px solid #dddddd;
+}
+
+.bf-container .container-zhuce .zhuce-Code {
+  width: 140px;
+}
+
+.bf-container .container-zhuce span {
+  position: absolute;
+  left: 25px;
+  width: 17px;
+  height: 20px;
+}
+
+.bf-container .container-zhuce .zhuce-s1 {
+  background: url(../images/icon-user_05.jpg) no-repeat;
+  top: 89px;
+}
+
+.bf-container .container-zhuce .zhuce-s2 {
+  background: url(../images/logo_2.jpg);
+  top: 130px;
+}
+
+.bf-container .container-zhuce .zhuce-s3,
+.bf-container .container-zhuce .zhuce-s4 {
+  background: url(../images/logo_3.jpg) no-repeat;
+  top: 174px;
+}
+
+.bf-container .container-zhuce .zhuce-s4 {
+  top: 216px;
+}
+
+.bf-container .container-zhuce .zhuce-getnote {
+  margin-left: 12px;
+  width: 134px;
+  height: 32px;
+  background: url(../images/getShort_18.jpg);
+}
+
+.bf-container .container-zhuce .zhuce-Agre {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 20px;
+  font-size: 12px;
+  color: #dddddd;
+}
+.bf-container .container-zhuce .zhuce-Agre .shu {
+    color: #1a9eff;
+     margin:0 5px;
+}
+
+.bf-container .container-zhuce .zhuce-Agre .icon-02 {
+  margin-top: 2px;
+  float: left;
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon_02.jpg);
+}
+
+.bf-container .container-zhuce .zhuce-Agre .Agre {
+  margin: 0 5px;
+  float: left;
+}
+
+.bf-container .container-zhuce .zhuce-Agre .login {
+  color: #1a9eff;
+}
+
+.bf-container .container-zhuce .zhuce {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #1a9eff;
+  color: #fff;
+  font-size: 18px;
+}
+
+.bf-container .container-zhuce .icon_01 {
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon_01.jpg);
+}
+
+.bf-container .container-zhuce .text1 {
+  margin: 0 5px;
+  font-size: 12px;
+  color: #dddddd;
+}
+
+.bf-container .container-zhuce .text2 {
+  position: relative;
+  margin-top: 100px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #dddddd;
+}
+
+.bf-container .container-zhuce .text2 ::before {
+  content: '';
+  font-size: 0px;
+  display: block;
+  width: 80px;
+  height: 5px;
+  background-color: #e7e7e7;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+}
+
+.bf-container .container-zhuce .text2 ::after {
+  content: '';
+  font-size: 0px;
+  display: block;
+  width: 80px;
+  height: 5px;
+  background-color: #e7e7e7;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+.bf-container .container-zhuce .icon-qq {
+  margin: 10px auto;
+  width: 131px;
+  height: 30px;
+  background: url(../images/qq_logo.jpg);
+}
+/* 内容部分结束 */
+
+.footer {
+  padding-top: 30px;
+  width: 100%;
+  height: 110px;
+  color: #999;
+}
+
+.footer p {
+  text-align: center;
+  margin-bottom: 10px;
+}

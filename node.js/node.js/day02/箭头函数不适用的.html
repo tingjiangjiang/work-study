@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+            1、在对象对应的方法中使用this的时候，该方法不应该被定义为箭头函数，否则this指向出问题。例如：
+            const cat = {
+                lives: 9,
+                jumps: () => {
+                    this.lives--;
+                }
+            }
+            由于cat定义在全局环境中，cat的调用者就是window，所以jumps里面的this，指向window，并不能指向cat。
+            
+            2、DOM绑定事件回调方法的时候，回调方法不要写成箭头函数。
+        */
+	</script>
+</html>

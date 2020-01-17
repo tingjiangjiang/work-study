@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 1、函数形参默认值(当实参严格等于undefined的时候，默认值触发)
+		// 示例一:
+		// function f(x, y = 2) {
+		// 	console.log(x, y);
+		// }
+		// f(1, undefined);
+		// f();
+		// f(1);
+		// f(1, 4);
+		// 示例二：
+		// 一般而言函数形参的默认值都是在最后的参数上，依次向前推，f(x=1,y)这种写作形式不推荐
+		// function f(x = 1, y) {
+		// 	console.log(x, y);
+		// }
+		// f(2);
+		// 示例三：解构赋值做函数形参
+		// function f({ x = 1, y = 2 }={} ) {console.log(x,y);}
+		// f(); //let {x=1,y=2} = undefined
+		// f({});
+		// f(1);
+		// f(1, 2);
+
+		// 剩余参数运算符(rest)，表现形式为 ...
+
+		// f函数里面的args就是被剩余参数运算符修饰过的，此时的args是一个数组;从字面意思来看，被rest运算符修饰过的参数应该做尾参数
+		// function f(x, ...args) {
+		// 	console.log(x);
+		// 	console.log(args); //获取剩余参数的
+		// 	console.log(arguments); //获取实参的
+		// }
+		// f(1, 2, 3);
+
+		// 示例1：
+		var a = [1, 2, 3];
+		// let [,,b] = a;//3
+		// let [c] = a;//1
+		// console.log(b);
+		// console.log(c);
+		// let b = a;
+		// console.log(b);
+		// let c = [...a];
+		// console.log(c);
+
+		// let [...d] = a; //此时的... 理解为剩余参数运算符  结合上了结构赋值
+		// console.log(d);//[1, 2, 3]
+		// console.log(...a);//1 2 3
+		// console.log(a);//[1, 2, 3]
+	</script>
+</html>

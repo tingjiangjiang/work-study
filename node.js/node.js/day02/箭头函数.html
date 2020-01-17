@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 普通函数的用法
+		function f() {}
+		var f = function() {};
+		var f1 = new Function();
+		// 箭头函数的写法
+		var f2 = () => {};
+		// 把箭头函数根据箭头左右分成两个部分来理解：左边是参数部分，右边是函数体部分
+		// 左边参数部分 示例1：
+		// 当箭头函数无参数的时候，形参列表的圆括号不可以省略
+		// var fun = () => {
+		// 	console.log('无参数箭头函数');
+		// };
+		// fun();
+		// 当箭头函数只有一个参数的时候，形参列表的圆括号可以省略
+		// var fun = title => {
+		// 	console.log('有一个参数箭头函数', title);
+		// };
+		// fun();
+		// 当箭头函数有多个参数的时候，形参列表的圆括号不可以省略
+		// var fun = (page, size) => {
+		// 	console.log('有多个参数箭头函数', page, size);
+		// };
+		// fun(1, 10);
+		// 右边函数体部分 示例2：
+		// 函数体没有返回值的情况
+		// var fun = () => {
+		// 	/*TODO SOMING*/
+		// };
+		// 函数体有返回值的情况
+		// var fun = () => '小苹果';
+		// var fun = () => [1, 2, 3];
+		// var fun = () => true;
+		// 如果箭头函数返回的是对象.因为对象使用的是大括号，然而函数体使用的也是大括号，产生了歧义;会把对象的大括号理解为函数体,所以报错，可以给大廓号外层套一个圆括号，让浏览器把内容当做一个表达式整体看待，解决错误问题。
+		// var fun = () => ({ name: '筷子兄弟', age: 20 });
+		// console.log(fun());
+
+		// var fun = () => {
+		// 	// TODO SOMING
+		// 	return {
+		// 		name: '凤凰传奇',
+		// 		age: '林华',
+		// 	};
+		// };
+		// console.log(fun());
+
+		// 示例3：
+		// var fun = (page, size = 10) => {
+		// 	console.log(page, size);
+		// };
+		// fun(1);
+
+		// var fun = ({ page = 1, size = 10 } = {}) => {
+		// 	console.log(page, size);
+		// };
+		// fun();
+
+		// 示例4：
+		// var fun = () => {
+		// 	a: console.log(1);
+		// };
+		// fun();
+		// 语句标签
+		// var month = 9;
+		// switch (month) {
+		// 	case 1:
+		// 		console.log('一月');
+		// 		break;
+		// 	case 2:
+		// 		console.log('二月');
+		// 		break;
+		// 	default:
+		// 		break;
+		// }
+		// for (var i = 0; i < 10; i++) {
+		// 	if (i == 2) {
+		// 		continue;
+		// 		// break;
+		// 	}
+		// }
+		// 语句标签示例
+		// var iNum = 0;
+
+		// outermost: for (var i = 0; i < 10; i++) {
+		// 	for (var j = 0; j < 10; j++) {
+		// 		if (i == 5 && j == 5) {
+		// 			break outermost;
+		// 		}
+		// 		iNum++;
+		// 	}
+		// }
+		// console.log(iNum); //输出 "55"
+
+		// 3、箭头函数的this对象
+		// var fun = () => {
+		// 	console.log(this);
+		// };
+		// fun();
+		// var fun = () => {
+		// 	// setTimeout(function() {
+		// 	// 	console.log(this);
+		// 	// }, 1000);
+		// 	setTimeout(() => {
+		// 		console.log(this);
+		// 	}, 1000);
+		// };
+		// // fun();
+		// fun.call({ name: 'zhangsan' });
+
+		// 箭头的this指向：指向的是最顶端的调用者，而不是当前调用者
+		function foo() {
+			console.log(this);
+			// setTimeout(function() {
+			// 	console.log('id:', this.id);
+			// }, 100);
+			window.setTimeout(() => {
+				console.log('id:', this.id);
+			}, 100);
+		}
+		var id = 21;
+		foo.call({ id: 42 });
+	</script>
+</html>

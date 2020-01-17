@@ -1,0 +1,77 @@
+要使用npm务必需要一个package.json文件
+package.json里面包含有当前工程或项目的信息（工程名字，作者，版本，项目描述，项目依赖的第三方包）
+
+1、何生成一个package.json文件？（一定不要手动新建）
+使用npm init或npm init -y命令生成(命令输入前一定要切换目录到自己的工程目录下)
+！！特别注意：工程或项目文件夹的名字，一定不要和安装的npm包名字一样，否则会起冲突。如果不小心起的名字一样了怎么办？在package.json文件中修改name名字即可。
+
+2、如何通过npm安装下载第三方包？
+使用npm i express 或 npm install express 命令安装；安装完毕后，如何确定已经安装成功？重新打开package.json会增加dependencies或devDependencies选项，里面有刚刚安装的包名字和版本。
+
+npm i express 
+等价于
+npm i express -S 或 npm i express --save  或 npm install express 或 npm install express --save
+
+npm i less -D 等价于 npm i less --save-dev
+
+npm i mongodb mongoose 安装多个模块(通过空格隔开),安装了mongodb和mongoose两个模块
+
+安装指定版本的模块
+
+npm i jquery@1.8.3  //安装指定版本
+npm i jquery    //默认安装最新版本 
+npm i jquery@latest //安装最新版
+
+3、dependencies和devDependencies区别？
+dependencies是项目依赖；devDependencies是开发依赖
+项目依赖的意思是不管项目是上线还是开发阶段都需要；
+开发依赖的意思是开发的时候需要，上线了不需要。
+
+4、查看版本
+
+npm view jquery versions    //查看所有版本
+npm view jquery version //查看最新版
+
+5、卸载
+
+npm uninstall jquery
+
+
+6、全局安装
+
+-g
+
+全局安装和本地安装的区别？
+
+全局安装的好处就是安装一次，以后不用再安了。但是每个项目在打包的时候无法打包全局安装的第三方包。也就是说项目无法运行和部署。
+
+本地安装是针对于项目的，也就说每个项目都需要安装。
+
+什么时候需要全局安装？一般是一些工具性的安装包，比如：express生成器，koa生成器，vue脚手架，react脚手架等。
+
+什么时候需要本地安装？项目需要的依赖都需要本地安装。
+
+7、安装的镜像资源和安装失败问题
+
+能不能顺利的安装一个npm的包，归根结底就是网络问题。
+网络如果有问题，怎么解决：
+1、换网，换手机热点。
+2、换镜像，因为国外的一些资源，国内无法访问或访问受限。
+
+查看镜像：npm config get registry
+设置镜像：npm config set registry https://registry.npmjs.org/
+设置淘宝镜像：npm config set registry https://registry.npm.taobao.org --global
+设置cnpm（一般情况下所指的cnpm是淘宝镜像）
+
+安装cnpm：
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+安装cnpm完毕后，既可以使用cnpm指令也可以使用npm指令
+
+8、莫名的安装失败
+1)反复尝试（尝试3次左右）
+2)npm cache clean --force 清除缓存
+
+
+
+

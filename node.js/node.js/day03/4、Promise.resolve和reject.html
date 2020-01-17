@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<script src="./jquery-3.0.0/jquery-1.12.4.js"></script>
+	</head>
+	<body></body>
+	<script>
+		// 一、Promise.resolve
+		var getCinema = $.get('http://www.bestqingshan.top/movie/cinemas.php');
+		var p = Promise.resolve(getCinema);
+		p.then(res => {
+			// console.log(res);
+			var obj = JSON.parse(res);
+			console.log(obj);
+		});
+		// 二、Promise.reject
+		var p = Promise.reject('hello');
+		p.catch(rst => {
+			console.log(rst);
+		});
+	</script>
+</html>

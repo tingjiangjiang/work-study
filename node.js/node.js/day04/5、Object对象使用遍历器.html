@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		var obj = { name: 'zhangsan', age: 22, address: '北京' };
+		obj[Symbol.iterator] = function() {
+			var index = 0;
+			return {
+				next: function() {
+					if (index < 2) {
+						return { value: index++, done: false };
+					} else {
+						return { value: undefined, done: true };
+					}
+				},
+			};
+		};
+		// iterator调用next遍历
+		let it_obj = obj[Symbol.iterator]();
+		console.log(it_obj.next());
+		console.log(it_obj.next());
+		// for...of
+		// for (let item of obj) {
+		// 	console.log(item);
+		// }
+		// for (let item of Object.keys(obj)) {
+		// 	console.log(item);
+		// }
+	</script>
+</html>

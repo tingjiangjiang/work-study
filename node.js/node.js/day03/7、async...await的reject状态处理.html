@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		function timer() {
+			var p = new Promise((resolve, reject) => {
+				// reject('出错');
+				resolve('正常,世界和平');
+			});
+			return p;
+		}
+		async function async_timer() {
+			// 捕获reject的方式一：
+			try {
+				let rst = await timer();
+				console.log(rst);
+			} catch (error) {
+				console.log(error);
+			}
+			// 捕获reject的方式二：
+			// let rst = await timer().catch(err => {
+			// 	console.log(err);
+			// });
+		
+			// console.log(rst);
+			
+		}
+		async_timer();
+		
+	</script>
+</html>

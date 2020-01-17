@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 数据结构（array，map，set）部署了默认的迭代器接口后，可以由for...of（for...of相当于iterator的语法糖）进行循环遍历
+		// 默认的迭代器接口是部署在Symbol.iterator属性上的，该属性是一个函数
+		// 示例一：
+		var arr = [1, 2, 3, 4, 5];
+		// forEach遍历
+		// arr.forEach(val => {
+		// 	console.log(val);
+		// });
+		// for...of遍历
+		// for (let item of arr) {
+		// 	console.log(item);
+		// }
+		// iterator遍历
+		// let it_arr = arr[Symbol.iterator](); //Symbol.iterator函数返回一个迭代器
+		// let { value, done } = it_arr.next();
+		// while (!done) {
+		// 	// console.log(value);
+		// 	let { value: v, done: d } = it_arr.next();
+		// 	value = v;
+		// 	done = d;
+		// }
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+		// console.log(it_arr.next());
+	</script>
+</html>

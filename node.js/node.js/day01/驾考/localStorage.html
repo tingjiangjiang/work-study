@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		/*
+            window.localStorage和window.sessionStorage的区别？
+            localStorage是永久存储，不过期，除非主动删除；sessionStorage会话级的存储，浏览器关闭则存储内容消失；它们的用法是一样的
+
+            localStorage和cookie的区别？
+            1、cookie的存储大小是4k左右，localStorage的存储大小是5M左右
+            2、cookie是可以设置过期时间的，默认不设置为session；localStorage是永久存储的，除非主动删除
+            3、cookie和localStorage都是明文存储，但是都可以设置加密
+            4、cookie会随着请求发送给服务器，localStrorage不会；所以cookie设置的过多，会影响请求的速度
+            5、兼容性问题，cookie对浏览器兼容较好，localStorage是H5的技术，对不支持H5的浏览器兼容有问题
+        */
+		// window.sessionStorage
+		if (window.localStorage) {
+			var storage = window.localStorage;
+			var info = {
+				name: 'zhangsan',
+				age: 22,
+			};
+			// 设置一个值 
+			storage.setItem('你好', JSON.stringify(info));
+			storage.setItem('title', '星期一');
+			storage.removeItem('title');
+			// 根据key获取值
+			console.log(storage.getItem('info'));
+			console.log(storage.getItem('你好'));
+			// 根据key删除值
+			// storage.removeItem('title');
+			// 清空
+			// storage.clear();
+		} else {
+			console.log('当前浏览器不支持localStorage的使用');
+		}
+	</script>
+</html>

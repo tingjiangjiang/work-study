@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+	</head>
+	<body></body>
+	<script>
+		// 重要！！！！：扩展运算符（...）也会调用默认的 Iterator 接口。
+
+		class RangeIterator {
+			constructor(start, stop) {
+				this.value = start;
+				this.stop = stop;
+			}
+			[Symbol.iterator]() {
+				let that = this;
+				return {
+					next() {
+						var value = that.value;
+						if (value < that.stop) {
+							that.value++;
+							return { done: false, value: value };
+						}
+						return { done: true, value: undefined };
+					},
+				};
+			}
+			/*
+			[Symbol.iterator]() {
+				return this;
+			}
+
+			next() {
+				var value = this.value;
+				if (value < this.stop) {
+					this.value++;
+					return { done: false, value: value };
+				}
+				return { done: true, value: undefined };
+			}
+            */
+		}
+
+		function range(start, stop) {
+			return new RangeIterator(start, stop);
+		}
+
+		for (var value of range(0, 3)) {
+			console.log(value); // 0, 1, 2
+		}
+	</script>
+</html>

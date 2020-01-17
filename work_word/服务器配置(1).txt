@@ -1,0 +1,90 @@
+﻿
+机器人测试账号：xianchen18xx@163.com      wyj198617
+
+zgtop.io海外:
+	
+	 "host": "47.56.187.163",
+    	"username": "root",
+    	"password": "qJ!#XjS9cp6Jrwvf",
+    	"remotePath": "/mnt/zgtop-web",
+    	"protocol": "sftp",
+
+测试:
+	"host": "47.104.111.186",
+   	"username": "root",
+    	"password": "Iq2H77NdmoDUEbTmF",
+    	"remotePath": "/mnt/zgtop-web",
+    	"protocol": "sftp",
+
+
+
+机器人线上服务器
+	47.75.126.142(公)（公网）
+	172.31.156.202(私有)（不用管）（内网）
+	root 
+	syyR490alG1xko
+	
+
+	
+ 行情：
+	地址：47.75.74.37(公)
+	172.31.156.204(私有)
+	账号：root 
+	密码：r3eiSpmerSIK1i
+
+	指令：	pm2 restart all  全部重启  
+		pm2 stop all 全部停止
+	查看指令 ： pm2 list
+	重启某一个行情：pm2 restart+id
+	停机重启：pm2 start /home/server/node_server/ecosystem.config.js
+
+	前端重启  nginx -p openresty-web/	
+		
+
+区块达客
+	"host": "115.28.187.37",
+                "username": "root",
+   	 "password": "XpSlcJrI#mh%c1w",
+    	"remotePath": "/qkdk/dake",
+    	"protocol": "sftp",
+
+zgnews
+	47.244.44.129（公）
+	root
+	~ZgNews@2019tj
+	路径：home/www
+
+adax 服务器配置:
+	"host": "47.75.90.135",
+    	"username": "root",
+    	"password": "~Zhgtop@2018ty",
+    	"remotePath": "/mnt/adax-web",
+    	"protocol": "sftp",
+
+
+
+
+测试验证码：
+	http://47.104.111.186:8086/getCode?contact=18574151518@163.com	
+
+zgtop.io升级页面启动指令：
+	openresty -c /mnt/upSystem/nginx.conf
+
+测试升级页面：
+	openresty -c /test/nginx.conf
+测试机器人启动：
+	openresty -c /usr/local/openresty/nginx/conf/nginx.conf     或   /usr/local/openresty/nginx -c /usr/local/openresty/nginx/conf/nginx.conf
+线上机器人重启指令：
+	openresty -c /zgtop/zgtop-web/conf/nginx.conf
+
+机器人测试端后台地址：http://47.104.111.186:8003/  账号：admin 密码 ：123456aaa  
+
+机器人测试端前端地址：http://47.104.111.186:8002/ 账号 ：currency@qq.com  密码 123456aaa  
+
+
+c2c 样式编译 complish +名字
+
+
+远程连接：Ip：47.52.93.211
+	name:qianduan
+	password:qian_123

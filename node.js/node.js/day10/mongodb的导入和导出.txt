@@ -1,0 +1,8 @@
+﻿注意不可直接在mongodb客户端导入,需要关闭mongodb客户端或者新开一个dom窗口后再导入;
+mongoimport -d baofeng -c films --file[--jsonArray] json文件路径
+
+其中:-d表示需要导入的数据库，-c表示需要导入的集合(如果使用mongoose操作数据，集合名字需要复数形式),--file用于导入json对象格式数据，如：{title:'zhangsan'};--jsonArray用于导入json数组格式数组,如：[{title:'张三'},{title:'李四'}]
+
+mongoexport -d baofeng -c films -o 文件的导出路径
+
+其中：-o表示导出的路径
