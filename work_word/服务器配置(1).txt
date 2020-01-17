@@ -88,3 +88,4 @@ c2c 样式编译 complish +名字
 远程连接：Ip：47.52.93.211
 	name:qianduan
 	password:qian_123
+数据库测试连接：47.104.111.186  6375  test
