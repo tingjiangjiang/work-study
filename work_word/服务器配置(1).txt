@@ -89,3 +89,4 @@ c2c 样式编译 complish +名字
 	name:qianduan
 	password:qian_123
 数据库测试连接：47.104.111.186  6375  test
+io和行情的密码改：zgtop&Zbh(46lzE!kQP@
