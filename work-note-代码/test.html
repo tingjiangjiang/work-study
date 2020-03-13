@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+//demo1
+//知识点：函数的块级作用域
+	// var a = [];
+	// for (var i = 0; i < 10; i++) {
+	//   a[i] = function () {
+	//     console.log(i);
+	//   };
+
+
+	// }
+	// a[6]();
+//demo2
+//知识点：函数传参时，按照值复制传参
+	// var a = 20;
+
+	// function fn(a) {
+	//     a = a + 10;
+	//     return a;
+	// }
+	// fn(a);
+	// console.log(a);
+//demo3
+	// var a = { m: 10, n: 20 }
+	// function fn(a) {
+	//     a.m = 20;
+	//     return a;
+	// }
+
+	// fn(a);
+	// console.log(a);   // { m: 20, n: 20 }
+//demo4
+	// var person = {
+	//     name: 'Nicholas',
+	//     age: 20
+	// }
+
+	// function setName(obj) {  // 传入一个引用
+	//     obj = {};   // 将传入的引用指向另外的值
+	//     obj.name = 'Greg';  // 修改引用的name属性
+	// }
+
+	// setName(person);
+	// console.log(person.name);  // Nicholas 未被改变
+//demo5 工厂函数缺点：类型无法细分，所有通过该方式创建的类型都是属于Object类型
+	// var createPerson = function(name, age) {
+
+	//     // 声明一个中间对象，该对象就是工厂模式的模子
+	//     var o = new Object();
+
+	//     // 依次添加我们需要的属性与方法
+	//     o.name = name;
+	//     o.age = age;
+	//     o.getName = function() {
+	//         return this.name;
+	//     }
+
+	//     return o;
+	// }
+
+	// // 创建两个实例
+	// var perTom = createPerson('TOM', 20);
+	// var PerJake = createPerson('Jake', 22);
+	// console.log(perTom instanceof Object);
+	// console.log(perTom instanceof Function);
+//demo6 构造函数，原型链，call,apply
+//知识点：如何实现原型链继承，将子类的原型，指向父类的原型的实例，便可继承原型链中的方法。
+//function create(proto, options) {
+    // 创建一个空对象
+//     var tmp = {};
+
+//     // 让这个新的空对象成为父类对象的实例
+//     tmp.__proto__ = proto;
+
+//     // 传入的方法都挂载到新对象上，新的对象将作为子类对象的原型
+//     Object.defineProperties(tmp, options);//同时设置多个属性的特性,将options挂载在tmp对象上
+//     return tmp;
+// }//该方法是根据父类对象的原型创建一个实例，该实例将会作为子类对象的原型
+//目标：创建一个Person类，有name,age属性，他的原型上有：sayName,sayAge方法；new Person产生一个Student类，拥有
+
+//年级属性，它的原型上继承来自父类的方法，并且有自己的sayAge方法
+	/*function Person(name,age){
+		this.name = name;
+		this.age = age
+	};
+	Person.prototype.sayName = function(name){return this.name};
+	function Student(name,age,grade){
+		this.grade = grade;
+		Person.apply(this,arguments);
+	};
+	Student.prototype=Object.create(Person.prototype,{
+		//不要忘记了重新指定构造函数
+		//此时相当于用字面量为Student的原型添加方法，Person.prototype = {}实际上是重新创建了一个{}对象并赋值给Person.prototype，这里的{}并不是最初的那个原型对象。因此它里面并不包含constructor属性。为了保证正确性，我们必须在新创建的{}对象中显示的设置constructor的指向
+		constructor:{
+			value:Student//属性类型：value：该属性的具体值是多少。默认为undefined
+		},
+		getGrade:{
+			value:function(){
+			return this.grade
+			}
+		}
+	});
+	var s1 = new Student('ff',13,5);
+	console.log(s1);
+	console.log(s1.sayName());*/
+//demo7 详解事件循环机制
+
+//知识点：事件循环的顺序，决定了js代码的执行顺序。它从script（整体代码）开始第一次循环。之后
+//全局上下文进入函数调用栈。直到调用栈清空(只剩全局)，然后执行所有的micro-task(微任务)，当所有
+//可执行的微任务执行完毕之后。循环再次从宏任务(macro-task)开始,找到其中一个任务队列执行完毕，然后再
+//执行所有的micro-task，这样一直循环下去。
+//macro-task大概包括：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering。
+// macro-task大概包括：script(整体代码), setTimeout, setInterval, setImmediate, I/O, UI rendering
+// micro-task大概包括: process.nextTick, Promise, Object.observe(已废弃), MutationObserver(html5新特性)
+
+// demo01  出自于上面我引用文章的一个例子，我们来根据上面的结论，一步一步分析具体的执行过程。
+// 为了方便理解，我以打印出来的字符作为当前的任务名称
+	// setTimeout(function() {
+	//     console.log('timeout1');
+	// })
+
+	// new Promise(function(resolve) {
+	//     console.log('promise1');
+	//     for(var i = 0; i < 1000; i++) {
+	//         i == 99 && resolve();
+	//     }
+	//     console.log('promise2');
+	// }).then(function() {
+	//     console.log('then1');
+	// })
+
+	// console.log('global1');
+//demo8
+	// demo02
+	// console.log('golb1');
+
+	// setTimeout(function() {
+	//     console.log('timeout1');
+	//     process.nextTick(function() {
+	//         console.log('timeout1_nextTick');
+	//     })
+	//     new Promise(function(resolve) {
+	//         console.log('timeout1_promise');
+	//         resolve();
+	//     }).then(function() {
+	//         console.log('timeout1_then')
+	//     })
+	// })
+
+	// setImmediate(function() {
+	//     console.log('immediate1');
+	//     process.nextTick(function() {
+	//         console.log('immediate1_nextTick');
+	//     })
+	//     new Promise(function(resolve) {
+	//         console.log('immediate1_promise');
+	//         resolve();
+	//     }).then(function() {
+	//         console.log('immediate1_then')
+	//     })
+	// })
+
+	// process.nextTick(function() {
+	//     console.log('glob1_nextTick');
+	// })
+	// new Promise(function(resolve) {
+	//     console.log('glob1_promise');
+	//     resolve();
+	// }).then(function() {
+	//     console.log('glob1_then')
+	// })
+
+	// setTimeout(function() {
+	//     console.log('timeout2');
+	//     process.nextTick(function() {
+	//         console.log('timeout2_nextTick');
+	//     })
+	//     new Promise(function(resolve) {
+	//         console.log('timeout2_promise');
+	//         resolve();
+	//     }).then(function() {
+	//         console.log('timeout2_then')
+	//     })
+	// })
+
+	// process.nextTick(function() {
+	//     console.log('glob2_nextTick');
+	// })
+	// new Promise(function(resolve) {
+	//     console.log('glob2_promise');
+	//     resolve();
+	// }).then(function() {
+	//     console.log('glob2_then')
+	// })
+
+	// setImmediate(function() {
+	//     console.log('immediate2');
+	//     process.nextTick(function() {
+	//         console.log('immediate2_nextTick');
+	//     })
+	//     new Promise(function(resolve) {
+	//         console.log('immediate2_promise');
+	//         resolve();
+	//     }).then(function() {
+	//         console.log('immediate2_then')
+	//     })
+	// })
+//demo9
+//知识点：运用扩展运算符，将一个数组中的元素添加到另一个数组的末尾，并且改变原数组的值。
+//扩展运算符：属于数组的扩展，将一个数组转为用逗号分隔的参数序列。
+	// var arr1 = [0, 1, 2];
+	// var arr2 = [3, 4, 5];
+	// // var arr3 = Array.prototype.push.apply(arr1, arr2);
+	// Array.prototype.push.call(arr1,...arr2);
+	// // console.log( arr1.push.apply(this,));
+	// // arr1.push(...arr2)
+	// console.log(Array.prototype)
+	// console.log(arr1);
+	// console.log(arr1);
+//demo10
+//知识点：将类数组转换为数组
+	// function add(a,b,c,d){
+	// 	console.log(arguments)
+	// 	var arr = [].slice.call(arguments);//slice方法可以将一个类数组转换成一个新数组。你只需将该方法绑定在这个对象上。
+	// 	console.log(arr);
+	// 	return a+b+c+d;
+	// }
+
+	// 	add(1,2,3,4)
+
+//demo11
+//知识点：this的指向问题
+	// var number = 10;
+	// function fn() {
+	// 	console.log(this);
+	//     console.log(this.number)
+	// }
+	// var obj = {
+	//     number: 2,
+	//     show: function (fn) {
+	//     	console.log(this);
+	//         this.number = 3;
+	//         fn.call(this);
+	//         arguments[0]();
+	//     }
+	// }
+	// obj.show(fn)
+  //demo01
+	//  function ConstructorExample() {
+	//     console.log(this);
+	//     this.value = 10;
+	//     console.log(this);
+	// }
+
+	// var c = new ConstructorExample();
+	// console.log(c.value)
+  //demo02
+	  function fn()  
+	{  
+	    this.user = '追梦子';  
+	    return {};  
+	}
+	var a = new fn;  
+	console.log(a.user); //undefined
+
+</script>
+</html>
