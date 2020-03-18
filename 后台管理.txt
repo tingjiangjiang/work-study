@@ -1,0 +1,40 @@
+120.27重启：/usr/local/openresty/nginx/sbin/nginx -c /usr/local/openresty/nginx/conf/pro.conf -p /mnt/code -s reload
+安全验证接口https://www.showdoc.cc/zjie	
+186：重启 sh restartnginx.sh
+测试登录验证码地址：http://47.104.111.186:8086/getCode?contact=15779945611
+重启：restartnginx.sh
+测试 ：
+	"host": "47.104.111.186",
+     "username": "root",
+      "password": "Iq2H77NdmoDUEbTmF",
+      "remotePath": "/mnt/zgtop-web",
+      "protocol": "sftp",
+找回文件夹：/mnt/zgtop-web/lua/tpl/labs
+ZG.top海外:
+  
+   "host": "47.56.187.163",
+      "username": "root",
+      "password": "qJ!#XjS9cp6Jrwvf",
+      "remotePath": "/mnt/zgtop-web",
+      "protocol": "sftp",
+
+?aid=105
+后台管理登录：http://47.104.111.186:9090
+	账号：1015910794@qq.com
+	密码：123456
+
+	获取验证码接口：http://47.104.111.186:8086/getCode?contact=1015910794@qq.com
+
+蓝湖：https://lanhuapp.com/web/#/item?fid=10990dd9-0c70-4c84-a018-8d277237b745
+后台操作：http://47.104.111.186:9090/ssadmin/index.html#glorySubscribeList
+
+安全中心后台接口：
+https://www.showdoc.cc/zjie
+
+学习路径：
+	1.babeljs:
+		https://www.babeljs.cn/docs/
+	2.es6:
+		http://es6.ruanyifeng.com/#docs/function#
+	3.廖雪峰学习网站：
+		https://www.liaoxuefeng.com/
